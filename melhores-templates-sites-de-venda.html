@@ -1,0 +1,1580 @@
+<!doctype html>
+<html lang="pt-BR">
+	
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+        integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        .rounded-lg {
+            border-radius: .8rem !important
+        }
+
+        .form-row .owl-carousel [class*=col-] {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .page-link:focus,
+        .btn.focus,
+        .btn:focus {
+            box-shadow: none;
+        }
+
+        .custom-control-input:focus:not(:checked)~.custom-control-label::before,
+        .custom-control-input:focus~.custom-control-label::before,
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #999999;
+        }
+
+        .scrollable {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-] {
+            background: #bbb !important;
+            color: #ffffff !important;
+            width: 30px;
+            height: 30px;
+            line-height: 32px !important;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-]:hover {
+            background: #999;
+            border-radius: 30px;
+            color: #FFF;
+        }
+
+        .owl-carousel .owl-prev,
+        .owl-carousel .owl-next {
+            position: absolute;
+            top: 35%;
+            height: 30px;
+            margin: auto !important;
+        }
+
+        .owl-carousel .owl-prev {
+            left: 0px;
+        }
+
+        .owl-carousel .owl-next {
+            right: 0px;
+        }
+
+        .owl-carousel.brands-carousel .owl-stage,
+        .owl-carousel.products-carousel .owl-stage,
+        .owl-carousel.testimonials-carousel .owl-stage {
+            display: flex;
+        }
+
+        .owl-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .owl-carousel .item .product-list-item {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .card-product .discount {
+            left: 8px;
+            top: 7px;
+            z-index: 7;
+        }
+
+        .card-product .img-wrap img {
+            object-fit: cover;
+        }
+
+        .block {
+            padding: 20px 0;
+        }
+
+        .block-header {
+            text-align: center;
+        }
+
+        .block-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-products {
+            padding-bottom: 0px !important;
+        }
+
+        /* theme */
+        .box-meio {
+            background: #fff;
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .wrapper .container:last-child .box-meio:last-child {
+            padding-bottom: 50px;
+        }
+
+        .page-title .h4 {
+            padding: 30px 0 30px 0;
+            margin: 0;
+        }
+
+        /* brands carousel <-- */
+        .brands-carousel .owl-stage {
+            display: flex;
+        }
+
+        .brands-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+
+        .block-brands .box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            min-height: 60px;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* brands carousel --> */
+
+        /* desktop */
+        @media (min-width: 991px) {}
+
+        /* mobile */
+        @media (max-width: 990px) {
+            .page-title .h4 {
+                padding: 20px 0 20px 0;
+            }
+
+            .box-meio.bg-transparent {
+                margin: 0;
+            }
+
+            .block .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.10.14/src/bootstrap-input-spinner.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"
+        integrity="sha512-gDWSGGWzTc0mD1P0NwDUsZsSrSyLsC8Mv0I14JtDFJXu2Pgo3ik5Uk1+BqxosbEJU2gDUD6W5DCpn7l29Ah9Ag=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"
+        integrity="sha512-BPbay65HZK0I/A8rKJYm1oLFOUaPUrxOfyx89UMVTpPzuc0uVASMcSk1QokHAuf9nti43BDcrLwappGfJSuJBA=="
+        crossorigin="anonymous"></script>
+    <script>
+        function validarCPF(cpf) {
+
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf == '') return false;
+
+            if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" ||
+                cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+                return false;
+
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(9)))
+                return false;
+
+            add = 0;
+            for (i = 0; i < 10; i++)
+                add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(10)))
+                return false;
+
+            return true;
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        $(document).ready(function () {
+
+            $(".data").mask("00/00/0000", { clearIfNotMatch: true });
+            $('.cep').mask('00000-000', { clearIfNotMatch: true });
+            $(".cpf").mask("000.000.000-00", { clearIfNotMatch: true });
+            $(".cnpj").mask("00.000.000/0000-00", { clearIfNotMatch: true });
+            $('.valor').mask('000.000.000.000.000,00', { reverse: true });
+            $('.card-expiration-date').mask('00/00');
+            $('.card-number').mask('0000 0000 0000 0000');
+            $('.card-cvv').mask('0000');
+
+            var SPMaskBehavior = function (val) { return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'; },
+                spOptions = { onKeyPress: function (val, e, field, options) { field.mask(SPMaskBehavior.apply({}, arguments), options); } };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+
+            // auto scroll to div
+            if ($(".scroll-to-here")[0]) {
+                var $anchor = $('.scroll-to-here').offset();
+                $('html, body').animate({ scrollTop: $anchor.top - 0 }, 1000);
+            }
+
+            $('.show-loading').click(function () {
+                $('.loading').fadeIn();
+            });
+
+            $('form').on('keyup', '.cep', function () {
+                var cep = $(this).val();
+                var url = $(this).attr('url');
+                var $endereco = $(this).parents('.endereco');
+                if (cep != "" && cep.length == 9) {
+                    $.ajax({
+                        type: 'get',
+                        url: url + '/' + cep,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.data.bairro != '') {
+                                $endereco.find(".logradouro").val(data.data.logradouro);
+                                $endereco.find(".bairro").val(data.data.bairro);
+                                $endereco.find(".cidade").val(data.data.cidade);
+                                $endereco.find(".uf").val(data.data.uf);
+                                $endereco.find(".numero").focus();
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(".cpf").keyup(function () {
+                cpf = $(this).val().replace(/[^\d]+/g, '');
+                if (cpf.length == 11 && validarCPF($(this).val()) == false) {
+                    alert('O CPF ' + $(this).val() + ' inserido não é válido.')
+                    $(this).val('');
+                }
+            });
+
+            $('.copy-to-clipboard').click(function (e) {
+                e.preventDefault();
+                const el = document.createElement('textarea');
+                document.body.appendChild(el);
+                el.value = $(this).data('text');
+                el.select();
+                el.focus();
+                el.setSelectionRange(0, 99999);
+
+                try {
+                    document.execCommand('copy');
+                    alert('Conteúdo copiado com sucesso');
+                } catch (err) {
+                    alert('Desculpe, seu navegador não copiou o conteúdo.');
+                }
+
+                document.body.removeChild(el);
+            });
+
+            if ($.fn.owlCarousel) {
+                $('.products-carousel').owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    dots: false,
+                    slideBy: 4,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: false,
+                            items: 2
+                        },
+                        600: {
+                            dots: false,
+                            items: 3
+                        },
+                        1000: {
+                            dots: false,
+                            items: 4
+                        }
+                    }
+                });
+
+                $('.brands-carousel').owlCarousel({
+                    loop: false,
+                    nav: true,
+                    margin: 8,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 2,
+                            items: 2
+                        },
+                        600: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 3,
+                            items: 3
+                        },
+                        1000: {
+                            dots: true,
+                            nav: true,
+                            slideBy: 6,
+                            items: 6
+                        }
+                    }
+                });
+            }
+
+        })
+
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://powertemplates.github.io/templates-sites-de-venda" />
+
+    <link rel="icon" type="image/png" href="https://powertemplates.github.io/favicon-32x32.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        body,
+        .product-text * {
+            font-family: 'Titillium Web' !important;
+        }
+    </style>
+
+    <style>
+        .fonte-padrao,
+        .btn,
+        .fonte-menu,
+        .fonte-titulo {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-menu {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-titulo,
+        .block-title {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+
+    <style>
+        header,
+        header.complete,
+        header.minimal {
+            background-color: #111111 !important;
+        }
+
+        header,
+        header a,
+        header.minimal h1,
+        header.minimal .back-icon a,
+        header .shortcuts .nav-item a {
+            color: #ffffff !important;
+        }
+
+        header.header-156848294 .search-wrap .input-group input,
+        header.header-156848294 .search-wrap .input-group button {
+            color: #ffffff !important;
+        }
+
+        .section-header,
+        .nav-mobile .line-1,
+        .nav-mobile .line-2 {
+            background-color: #111111 !important;
+        }
+
+        .section-header,
+        .section-header a,
+        .nav-mobile .line-1,
+        .nav-mobile .line-1 a,
+        .nav-mobile .line-1 i {
+            color: #ffffff !important;
+        }
+
+        .category-list,
+        .shortcuts-mobile-area {
+            background-color: #ffffff !important;
+        }
+
+        .category-list .item a,
+        .shortcuts-mobile-area,
+        .shortcuts-mobile-area a {
+            color: #212529 !important;
+        }
+
+        .nav-principal,
+        .menu-mobile {
+            background-color: #ffffff !important;
+        }
+
+        .menu-principal li>a.nav-link,
+        .menu-mobile .nav-link,
+        .menu-principal li>a.nav-link:hover,
+        .menu-mobile .nav-link:hover {
+            color: #212529 !important;
+        }
+
+
+
+
+
+        footer,
+        .direitos {
+            background-color: #111111;
+        }
+
+        footer,
+        footer a,
+        footer a:hover,
+        .direitos,
+        .direitos a,
+        .direitos a:hover {
+            color: #ffffff !important;
+        }
+
+        .section-footer,
+        .section-subscribe {
+            background-color: #111111;
+        }
+
+        .section-footer,
+        .section-subscribe,
+        .section-footer a,
+        .section-subscribe a {
+            color: #ffffff !important;
+        }
+    </style>
+
+    <!-- custom css -->
+    <style> </style>
+    <!-- end custom css -->
+
+    <title>Melhores Templates para Sites de Venda - PowerTemplates</title>
+
+    <meta name="description" content="">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="PowerTemplates" />
+    <meta property="og:title" content="Melhores Templates para Sites de Venda - PowerTemplates" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer="" data-domain="powertemplates.github.io" src="script.js"></script>
+
+    <!-- custom -->
+
+    <!-- end custom -->
+</head>
+
+<body class="internal">
+
+    <div class="loading"><i class="fas fa-spinner fa-3x fa-spin"></i></div>
+
+    <style>
+        .loading {
+            display: none;
+            background: rgba(0, 0, 0, .5);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+            color: #fff;
+            text-shadow: 0px 0px 30px #000;
+            padding-top: 200px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+
+    <div class="cookiealert-area">
+        <div class="alert text-center cookiealert rounded" role="alert" style="opacity:0.9;">
+            Ao navegar neste site você aceita o uso de cookies para criar uma melhor experiência de navegação.
+
+            <button type="button" class="btn btn-light btn-sm acceptcookies">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+    <style>
+        .cookiealert-area {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            bottom: 15px;
+            z-index: 9999;
+            max-width: 900px;
+        }
+
+        @media (max-width: 990px) {
+            .cookiealert-area {
+                width: 85%;
+            }
+        }
+    </style>
+
+    <div class="zap">
+        <a href="" aria-label="Conversar no WhatsApp" target="_blank"
+            class="box-zap zap-floating-button text-decoration-none">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <style>
+        .messenger {
+            right: 85px !important;
+        }
+
+        .zap {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 99;
+        }
+
+        .box-zap {
+            width: 60px;
+            height: 60px;
+            background: #23B847;
+            border-radius: 50%;
+            color: #fff !important;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            margin: 2px;
+            padding: 10px;
+            font-size: 34px;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.banners-topo-carousel').owlCarousel({
+                autoplay: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoHeight: true,
+                loop: true,
+                margin: 0,
+                dots: false,
+                nav: false,
+                slideBy: 1,
+                items: 1
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <header class="section-header d-none d-sm-none d-md-block header-165737185">
+        <section class="header-main pt-4 pt-md-4 pb-md-4">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3">
+                        <div class="logo text-left">
+                            <a href="https://powertemplates.github.io/">
+                                <h1 class="logo-text">PowerTemplates</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6">
+                        <form action="https://powertemplates.github.io/produtos" method="get" class="search-wrap">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" name="term" value="Buscar produto"
+                                    onfocus="if (this.value === 'Buscar produto' || this.value === 'Search product') this.value = '';">
+                                <div class="input-group-append">
+                                    <button class="btn btn-link" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3 pl-sm-0">
+                        <div class="float-none float-sm-right">
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <div class="nav-mobile d-md-none">
+        <nav class="navbar navbar-light">
+
+            <div class="line-1 px-3">
+                <div class="row no-gutters align-items-center h-100">
+
+                    <div class="col-auto mr-3">
+                        <a href="#" class="open-sidebar" data-section="category" data-from="left">
+                            <div class="icon-wrap">
+                                <i class="bi bi-list"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <div class="logo text-left">
+                            <a href="https://powertemplates.github.io/">
+                                <h1 class="logo-text">PowerTemplates</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 text-right">
+                        <div class="d-inline-flex align-items-center">
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="line-2 px-3 pt-1 pb-3">
+                <form action="https://powertemplates.github.io/produtos" method="get" class="search-wrap">
+                    <div class="input-group border">
+                        <input type="text" class="form-control border-0" placeholder="Buscar por produto" name="term"
+                            value="">
+                        <div class="input-group-btn">
+                            <button class="btn" type="submit">
+                                <i class="bi bi-search text-muted"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+
+    <style>
+        header a {
+            color: #6c757d;
+        }
+
+        header a:hover {
+            text-decoration: none;
+        }
+
+        header .logo img {
+            max-height: 100px;
+            max-width: 220px;
+        }
+
+        header .icon-wrap i {
+            font-size: 30px;
+            margin-right: 5px;
+        }
+
+        header .cart .icon-wrap i {
+            font-size: 27px;
+            margin-right: 8px;
+        }
+
+        header .cart-counter {
+            border-radius: 50px;
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            margin-left: 0 !important;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        header .search-wrap .input-group {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        header .search-wrap input {
+            border: none;
+            border-radius: 5px !important;
+            margin: 1px !important;
+        }
+
+        header .search-wrap button {
+            margin: 1px;
+            color: #999;
+        }
+
+        header .social-media-list li {
+            margin-bottom: 0 !important;
+        }
+
+        header .social-media-list a {
+            font-size: 12px;
+        }
+
+
+        /* tablet */
+        @media (max-width: 768px) {
+
+            header.header-3 .text-wrap,
+            header.header-4 .text-wrap,
+            header.header-5 .text-wrap {
+                display: none;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            body.menu-in {
+                overflow: hidden;
+                padding-top: 166px;
+            }
+
+            .nav-mobile nav {
+                padding: 0px;
+            }
+
+            .nav-mobile .logo img {
+                max-height: 80px;
+            }
+
+            .nav-mobile .navbar-toggler {
+                display: block;
+            }
+
+            .nav-mobile .line-1 {
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .nav-mobile .line-1 i {
+                color: #6c757d;
+                font-size: 24px !important;
+                padding: 5px 0;
+            }
+
+            .nav-mobile .logo-text {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #6c757d;
+                font-size: 22px;
+            }
+
+            .nav-mobile .cart {
+                position: relative;
+                text-align: right;
+                display: inline-block;
+            }
+
+            .nav-mobile .cart .badge {
+                position: absolute;
+                right: -3px;
+                top: -3px;
+            }
+
+            .nav-mobile a {
+                color: #fff;
+                position: relative;
+            }
+
+            .nav-mobile .line-2 {
+                width: 100%;
+            }
+
+            .nav-mobile .line-2 .btn {
+                background: #fff !important;
+                border: none;
+                width: 36px;
+                height: 36px;
+                padding: 0px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .nav-mobile .line-2 .input-group {
+                background: #fff;
+                border-radius: .25rem;
+            }
+        }
+    </style>
+
+
+
+
+    <style>
+        .offcanvas-collapse {
+            position: fixed;
+            top: 0px;
+            z-index: 10;
+            bottom: 0;
+            width: 80%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            overflow-y: auto;
+            visibility: hidden;
+            background-color: #eee;
+            box-shadow: 3px 0px 25px #666;
+            right: -100%;
+            transition-property: right, visibility;
+            transition-timing-function: ease-in-out;
+            transition-duration: .3s;
+        }
+
+        .offcanvas-collapse.open {
+            right: 0;
+            visibility: visible;
+        }
+
+        .offcanvas-collapse.left {
+            left: -100%;
+            transition-property: left, visibility;
+            right: unset;
+        }
+
+        .offcanvas-collapse.left.open {
+            left: 0;
+            right: unset;
+        }
+
+
+
+        .offcanvas-bg-overlay {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            opacity: 0.5;
+            display: none;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
+        }
+
+
+        /* desktop */
+        @media (min-width: 990px) {
+            .offcanvas-collapse {
+                width: 440px;
+            }
+        }
+    </style>
+
+    <div class="offcanvas-bg-overlay close-sidebar"></div>
+
+    <div class="sidebar py-3 px-4 navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+        <div class="sidebar-section sidebar-category">
+            <div class="sidebar-header pb-3">
+                &nbsp;
+
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul class="navbar-nav ml-auto mt-2 nav-categories-level-1 border-top">
+                </ul>
+
+
+            </div>
+        </div>
+
+        <script>
+            function showNavCategoriesLevel1() {
+                $('.nav-categories-level-2').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-1').fadeIn('fast');
+                });
+            }
+
+            function showNavCategoriesLevel2(id) {
+                $('.nav-categories-level-1').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-2.nav-category-children-' + id).fadeIn();
+                });
+            }
+
+            $(document).ready(function () {
+
+                $('.nav-categories-go-level-1').click(function (e) {
+                    showNavCategoriesLevel1();
+                    e.preventDefault();
+                });
+
+                $('.nav-categories-go-level-2').click(function (e) {
+                    var categoryId = $(this).data('id');
+                    showNavCategoriesLevel2(categoryId);
+                    e.preventDefault();
+                });
+
+            })
+        </script>
+
+        <div class="sidebar-section sidebar-search">
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Pesquisar</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <form action="https://powertemplates.github.io/produtos" method="get" class="mt-5">
+                    <div class="form-group">
+                        <label>Buscar produto</label>
+                        <input type="text" class="form-control" name="term">
+                    </div>
+                    <button class="btn btn-primary btn-principal" type="submit">
+                        <i class="fa fa-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <div class="sidebar-section sidebar-account">
+    <div class="sidebar-header">
+        <h4 class="fonte-titulo">Minha conta</h4>
+        <i class="fas fa-times close-button close-sidebar"></i>
+    </div>
+    <div class="sidebar-content">
+                    <div class="mt-5">
+                <a href="https://powertemplates.github.io/identificacao#cadastrar" class="btn btn-primary btn-principal d-block mt-4">
+                    Criar minha conta
+                </a>
+                <a href="https://powertemplates.github.io/identificacao#login" class="btn btn-primary btn-principal d-block mt-4">
+                    Já tenho cadastro
+                </a>
+            </div>
+            </div>
+</div> -->
+
+        <div class="sidebar-section sidebar-cart">
+
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Carrinho</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+
+            <div class="sidebar-content mt-4">
+                <div class="cart">
+
+                    <p>Seu carrinho está vazio.</p>
+
+                </div>
+
+                <style>
+                    .cart .gift-label {}
+
+                    .cart .cart-item.gift {
+                        background-color: #fff;
+                        padding: 10px 10px 8px 10px !important;
+                    }
+
+                    .cart .form-qtd label {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 2px;
+                    }
+
+                    .cart .spinner-input-sm {
+                        max-width: 120px;
+                    }
+
+                    .cart .price {
+                        color: #777;
+                        font-weight: normal;
+                    }
+
+                    .cart .img-thumbnail {
+                        width: 80px;
+                    }
+
+                    .cart .one-column>div {
+                        max-width: 100%;
+                        flex: 100%;
+                    }
+
+                    .cart .form-qtd label {
+                        display: none;
+                    }
+
+                    .cart .btn-texto {
+                        display: block !important;
+                    }
+
+                    .cart .btn-botao {
+                        display: none;
+                    }
+
+                    .cart .col-price-del {
+                        width: 100%;
+                        max-width: 100%;
+                        margin-left: 0 !important;
+                        flex: 100%;
+                    }
+                </style>
+
+                <script>
+                    $(document).ready(function () {
+
+                        $(".spinner-input-sm").inputSpinner({ groupClass: "input-group-sm" })
+
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('.show-quote-form').click(function () {
+                    $('.form-quote-area, .qtd-hidden').show();
+                    $('.sidebar-cart .form-edit, .sidebar-cart .delete-column').hide();
+                    $(this).hide();
+                })
+            });
+        </script>
+
+
+    </div>
+
+    <style>
+        .sidebar .nav-link {
+            color: #333;
+            font-size: 18px;
+            display: block;
+            position: relative;
+        }
+
+        .sidebar .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+        }
+
+        .sidebar .dropdown-toggle::after {
+            position: absolute;
+            top: 21px;
+            right: 0;
+            font-size: 18px;
+        }
+
+        .sidebar-header {
+            position: relative;
+        }
+
+        .sidebar-header .close-button {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            top: 0px;
+            font-size: 20px;
+            background: #fff;
+            border-radius: 38px;
+            line-height: 35px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+
+        .sidebar-header h4 {
+            margin-top: 15px;
+        }
+
+
+	.main-post-img {
+          max-width: 900px;
+        }
+        
+        figcaption {
+          text-align: center;
+          margin-top: 7px;
+        }
+
+        /* mobile */
+        @media (max-width: 990px) {}
+    </style>
+
+    <script>
+        $(function () {
+            'use strict'
+            $('[data-toggle="offcanvas"]').on('click', function () {
+                $('.offcanvas-collapse').toggleClass('open');
+            });
+        });
+
+        function openSidebar(section) {
+            $('.offcanvas-collapse').removeClass('open');
+            $('.sidebar .sidebar-section').hide();
+            $('.sidebar .sidebar-' + section).show();
+            $('.offcanvas-collapse').addClass('open');
+            $('.offcanvas-bg-overlay').hide().fadeIn('slow');
+            $('html, body').addClass('overflow-hidden');
+        }
+
+        $(document).ready(function () {
+
+            $('.open-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('left');
+                if ($(this).data('from') == 'left') {
+                    $('.offcanvas-collapse').addClass('left');
+                }
+                openSidebar($(this).data('section'));
+                return false;
+            });
+
+            $('.close-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('open');
+                $('.offcanvas-bg-overlay').fadeOut('slow');
+                $('html, body').removeClass('overflow-hidden');
+                return false;
+            });
+
+
+        });
+    </script>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="box-meio">
+                <div class="page-title text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="h4 fonte-titulo">Melhores Templates para Sites de Venda</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="box-meio">
+
+                <div class="mb-5 pb-5">
+
+
+                  <figure class="main-post-img mb-4 mx-auto">
+                      <img src="https://powertemplates.github.io/temas-wordpress.png" class="img-fluid rounded" alt="Templates para Sites de Venda" width="900" heigth="694">
+                      <figcaption>Templates para Sites de Venda</figcaption>
+                  </figure>
+
+
+                  <div id="conteudo" style="max-width: 600px; margin: 0px auto;">
+                      <p>Se você deseja começar a faturar na internet, já deve ter percebido que o e-commerce é uma das oportunidades mais promissoras para empreendedores digitais. Mas abrir uma loja online vai muito além de simplesmente cadastrar produtos: trata-se de criar uma experiência completa, envolvente e confiável para o cliente, ao mesmo tempo em que se constrói uma marca sólida em um mercado cada vez mais competitivo, dinâmico e exigente. Cada detalhe do seu site — desde o layout da página inicial até a apresentação dos produtos e a navegação intuitiva — influencia diretamente não apenas a percepção do público, mas também os resultados financeiros do seu negócio.</p>
+                      <p>Dentro desse universo, existe um elemento que merece atenção especial: a escolha do template ideal. O design do seu site não é apenas uma questão estética — ele é decisivo para a usabilidade, fortalece a credibilidade da marca, melhora a experiência do usuário e, sobretudo, potencializa a conversão de visitantes em clientes. Um template bem planejado transforma curiosos em compradores fiéis; um modelo inadequado, por outro lado, pode gerar frustração, afastar usuários e limitar o crescimento do seu negócio.</p>
+                      <p>Este guia completo foi desenvolvido para ajudá-lo a tomar decisões estratégicas e seguras, oferecendo um panorama detalhado das melhores opções de templates para lojas virtuais. Selecionamos modelos de destaque em cinco segmentos de alta demanda — eletrodomésticos, beleza, moda, alimentação e esportes — abrangendo desde pequenos e-commerces até marketplaces mais complexos. Cada recomendação inclui recursos, funcionalidades e diferenciais que tornam cada template único, capaz de gerar resultados reais e mensuráveis para o seu negócio.</p>
+                      <p>Todos os templates foram avaliados com base em critérios essenciais para o sucesso digital: design moderno e atrativo, usabilidade intuitiva, performance otimizada, compatibilidade com dispositivos móveis, variedade de recursos, custo-benefício e confiabilidade da plataforma. Além disso, fornecemos dicas práticas para ajudá-lo a identificar quais modelos se alinham à identidade da sua marca, aos hábitos de compra do seu público-alvo e às tendências do mercado. Dessa forma, suas escolhas serão assertivas e impactarão positivamente o crescimento e a reputação da sua loja online.</p>
+                      <p>Escolher o template certo vai muito além de “decorar” sua loja: é investir em uma experiência memorável, otimizar toda a jornada de compra, aumentar as taxas de conversão e consolidar sua marca como referência no universo digital. Um template adequado é a base sobre a qual se constrói credibilidade, eficiência e relacionamento duradouro com seus clientes, tornando cada interação significativa e estratégica.</p>
+                      <p>Seguindo nossas recomendações, você terá a base necessária para criar uma loja virtual que não apenas atraia visitantes, mas os envolva, conquiste sua confiança e transforme cada clique em oportunidade real de negócio. Explore nossas sugestões, teste demonstrações detalhadas e descubra como escolher o modelo perfeito para transformar seu e-commerce em um verdadeiro sucesso — uma loja que encanta, converte e cresce de forma consistente, tornando sua presença digital não apenas visível, mas memorável, irresistível e estrategicamente lucrativa.</p>
+                      <div class="content-index">
+                          <strong>Índice:</strong>
+                          <ol>
+                              <li>
+                                  <a href="#temas-de-ecommerce-para-brinquedos-e-jogos">Temas de e-Commerce para Brinquedos e Jogos</a>
+                                  <ol>
+                                      <li><a href="#cn-store-baby-theme-loja-integrada">CN Store – Baby Theme (Loja Integrada)</a></li>
+                                      <li><a href="#toyo-shopify">Toyo (Shopify)</a></li>
+                                      <li><a href="#kids-flex-nuvemshop">Kids | Flex (Nuvemshop)</a></li>
+                                      <li><a href="#toyshop-storefront-child-theme-woocommerce">ToyShop – Storefront Child Theme (WooCommerce)</a></li>
+                                      <li><a href="#toytown-opencart">Toytown (OpenCart)</a></li>
+                                      <li><a href="#kids-toys-baby-store-prestashop">Kids Toys – Baby Store (PrestaShop)</a></li>
+                                  </ol>
+                              </li>
+                              <li>
+                                  <a href="#temas-de-ecommerce-para-cursos-online-e-educacao">Temas de e-Commerce para Cursos Online e Educação</a>
+                                  <ol>
+                                      <li><a href="#edtech-loja-integrada">EdTech (Loja Integrada)</a></li>
+                                      <li><a href="#academy-shopify">Academy (Shopify)</a></li>
+                                      <li><a href="#educa-nuvemshop">Educa (Nuvemshop)</a></li>
+                                      <li><a href="#masterstudy-lms-woocommerce">MasterStudy LMS (WooCommerce)</a></li>
+                                      <li><a href="#elearning-opencart">eLearning (OpenCart)</a></li>
+                                      <li><a href="#edumarket-prestashop">EduMarket (PrestaShop)</a></li>
+                                  </ol>
+                              </li>
+                              <li>
+                                  <a href="#temas-de-ecommerce-para-supermercado-e-alimentos">Temas de e-Commerce para Supermercado e Alimentos</a>
+                                  <ol>
+                                      <li><a href="#royal-food-loja-integrada">Royal Food (Loja Integrada)</a></li>
+                                      <li><a href="#local-shopify">Local (Shopify)</a></li>
+                                      <li><a href="#recife-nuvemshop">Recife (Nuvemshop)</a></li>
+                                      <li><a href="#quickmart-woocommerce">QuickMart (WooCommerce)</a></li>
+                                      <li><a href="#metro-market-opencart">Metro Market (OpenCart)</a></li>
+                                      <li><a href="#freshg-prestashop">FreshG (PrestaShop)</a></li>
+                                  </ol>
+                              </li>
+                              <li>
+                                  <a href="#perguntas-frequentes-faq">Perguntas Frequentes (FAQ)</a>
+                                  <ol>
+                                      <li><a href="#qual-e-o-melhor-tema-de-ecommerce">1. Qual é o melhor tema de e-commerce?</a></li>
+                                      <li><a href="#onde-posso-comprar-ou-baixar-temas-para-minha-loja-virtual">2. Onde posso comprar ou baixar temas para minha loja virtual?</a></li>
+                                      <li><a href="#como-escolher-o-tema-ideal-para-minha-loja">3. Como escolher o tema ideal para minha loja?</a></li>
+                                      <li><a href="#preciso-saber-programar-para-usar-um-tema">4. Preciso saber programar para usar um tema?</a></li>
+                                      <li><a href="#posso-trocar-de-tema-depois-que-minha-loja-ja-estiver-no-ar">5. Posso trocar de tema depois que minha loja já estiver no ar?</a></li>
+                                      <li><a href="#os-temas-gratuitos-valem-a-pena">6. Os temas gratuitos valem a pena?</a></li>
+                                      <li><a href="#um-tema-influencia-nas-vendas-da-minha-loja">7. Um tema influencia nas vendas da minha loja?</a></li>
+                                  </ol>
+                              </li>
+                          </ol>
+                      </div>
+                      <h2 id="temas-de-ecommerce-para-brinquedos-e-jogos">Temas de e-Commerce para Brinquedos e Jogos</h2>
+                      <p>Os temas listados abaixo são voltados a lojas virtuais de brinquedos, jogos educativos, produtos infantis e entretenimento para crianças e famílias.</p>
+                      <h3 id="cn-store-baby-theme-loja-integrada">CN Store – Baby Theme (Loja Integrada)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos, acessórios e produtos infantis</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O CN Store – Baby Theme é ideal para quem deseja criar uma loja virtual leve, colorida e atrativa para o público infantil. Entre os diversos <a href="https://www.lojadelayouts.com/templates-prontos/temas-loja-integrada" target="_blank">templates Loja Integrada</a>, este se destaca por ser responsivo, garantindo que a experiência de compra seja agradável em smartphones e tablets.</p>
+                      <p>O tema oferece seções destacadas para produtos em promoção, lançamentos e bestsellers, além de banners personalizáveis para campanhas sazonais. É possível adicionar formulários de cadastro para newsletter e integrar redes sociais, aumentando o engajamento com clientes.</p>
+                      <p>Com o editor da plataforma, você consegue incluir elementos como vídeos de demonstração de brinquedos, ícones animados e imagens de produtos interativas, tornando o site mais dinâmico e divertido.</p>
+                      <h3 id="toyo-shopify">Toyo (Shopify)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos e produtos infantis</p>
+                      <p><strong>Preço:</strong> pago, valor variável conforme o plano</p>
+                      <p>O Toyo se destaca por oferecer layouts totalmente personalizáveis e otimização para SEO, ideal para aumentar a visibilidade de sua loja online. O design alegre e colorido chama atenção do público infantil e dos pais, transmitindo confiança e diversão.</p>
+                      <p>A página inicial permite exibir produtos em destaque, coleções especiais e promoções sazonais. O carrinho de compras é discreto e fácil de usar, enquanto seções como “Novidades” e “Mais Vendidos” ajudam a guiar a experiência do usuário.</p>
+                      <p>Além disso, o Toyo possibilita integração com ferramentas de marketing e redes sociais, aumentando a captação de leads e a presença digital da marca.</p>
+                      <h3 id="kids-flex-nuvemshop">Kids | Flex (Nuvemshop)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos, moda infantil e artigos para crianças</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O <a target="_blank" href="https://www.lojadelayouts.com/templates-prontos/layout-nuvem-shop">tema Nuvemshop</a> Kids da Flex é pensado para lojas que desejam transmitir uma identidade divertida e acolhedora. Ele apresenta cores vibrantes, tipografia amigável e seções organizadas, proporcionando uma navegação intuitiva para adultos e crianças.</p>
+                      <p>A página inicial destaca produtos em categorias específicas, promoções e lançamentos. O editor da Nuvemshop permite adicionar vídeos, banners animados e integração com Google Maps, perfeito para lojas que também possuem ponto físico.</p>
+                      <p>O Kids | Flex também oferece suporte para formulário de contato e newsletter, ajudando a fidelizar clientes e ampliar o alcance de campanhas de marketing digital.</p>
+                      <h3 id="toyshop-storefront-child-theme-woocommerce">ToyShop – Storefront Child Theme (WooCommerce)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos e games educativos</p>
+                      <p><strong>Preço:</strong> gratuito (com opção de upgrades pagos)</p>
+                      <p>O ToyShop é um tema alegre e lúdico, perfeito para criar uma atmosfera divertida no e-commerce. Ele é otimizado para dispositivos móveis e oferece seções de produtos destacados, promoções e categorias específicas.</p>
+                      <p>O layout é flexível, permitindo adicionar banners sazonais, vídeos de demonstração e seções interativas para engajar os visitantes. O tema é compatível com plugins de marketing e redes sociais, aumentando a visibilidade do seu negócio.</p>
+                      <p>Além disso, permite fácil personalização de cores e fontes, garantindo que a identidade visual da marca seja mantida em todas as páginas da loja.</p>
+                      <h3 id="toytown-opencart">Toytown (OpenCart)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos, games e produtos infantis</p>
+                      <p><strong>Preço:</strong> pago, valor variável conforme a licença</p>
+                      <p>O Toytown é ideal para lojas que desejam um site moderno, responsivo e cheio de recursos. Ele possui módulos de destaque para produtos, promoções e novidades, além de suporte para carrossel de imagens e banners animados.</p>
+                      <p>O tema inclui integração com redes sociais, formulário de contato e newsletter, garantindo que os clientes tenham uma experiência completa de navegação e engajamento.</p>
+                      <p>Com personalização simples, é possível ajustar cores, fontes e layouts de acordo com a identidade da marca, tornando a loja mais atrativa e profissional.</p>
+                      <h3 id="kids-toys-baby-store-prestashop">Kids Toys – Baby Store (PrestaShop)</h3>
+                      <p><strong>Público:</strong> lojas de brinquedos, artigos infantis e jogos educativos</p>
+                      <p><strong>Preço:</strong> pago, valor variável conforme a licença</p>
+                      <p>O Kids Toys é um tema responsivo, colorido e otimizado para dispositivos móveis, perfeito para transmitir diversão e confiança para o público infantil e seus responsáveis.</p>
+                      <p>O tema permite exibir produtos em categorias, promoções e novidades de forma organizada. Além disso, oferece suporte para banners animados, vídeos e integração com redes sociais, aumentando a interação com os clientes.</p>
+                      <p>O editor de PrestaShop possibilita personalizar o layout, cores, fontes e adicionar formulários de contato, criando uma experiência completa e envolvente para visitantes da loja.</p>
+                      <h2 id="temas-de-ecommerce-para-cursos-online-e-educacao">Temas de e-Commerce para Cursos Online e Educação</h2>
+                      <p>Os temas listados abaixo são voltados a lojas virtuais que oferecem cursos online, treinamentos, ebooks educativos e plataformas de aprendizado digital.</p>
+                      <h3 id="edtech-loja-integrada">EdTech (Loja Integrada)</h3>
+                      <p><strong>Público:</strong> professores, instrutores e escolas que vendem cursos online</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O EdTech é ideal para quem deseja criar uma vitrine digital para cursos online. O layout é limpo, responsivo e adaptado para dispositivos móveis, facilitando a navegação de alunos e visitantes. Ele permite organizar cursos por categorias, destacar cursos em promoção e incluir banners de destaque para webinars e workshops.</p>
+                      <p>O tema oferece formulários de inscrição para newsletter e integração com redes sociais, fortalecendo a presença digital da escola ou instrutor. Pelo editor da Loja Integrada, é possível adicionar vídeos, PDFs e links externos, além de integrar métodos de pagamento e certificados digitais para alunos.</p>
+                      <h3 id="academy-shopify">Academy (Shopify)</h3>
+                      <p><strong>Público:</strong> escolas, academias online e instrutores digitais</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O Academy é indicado para quem deseja um design moderno e visualmente atraente. Ele destaca cursos por categorias, mostra aulas mais populares e permite a exibição de depoimentos de alunos, aumentando a credibilidade da plataforma.</p>
+                      <p>O tema suporta integração com apps de ensino, vídeo-aulas e downloads de materiais digitais. Possui áreas personalizáveis para blogs educativos e landing pages de promoções, tornando a experiência de compra e aprendizado mais interativa.</p>
+                      <h3 id="educa-nuvemshop">Educa (Nuvemshop)</h3>
+                      <p><strong>Público:</strong> profissionais e empresas que comercializam cursos e ebooks</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O Educa é um tema funcional e direto, ideal para destacar cursos, workshops e materiais educativos. Entre os <a href="https://www.lojadetemplates.com.br/templates/layout-nuvem-shop" target="_blank">Nuvemshop layouts</a> disponíveis, ele se destaca por organizar a página inicial em blocos de cursos mais vendidos, promoções e notícias do setor, tornando a navegação intuitiva para novos alunos.</p>
+                      <p>O tema permite a inclusão de blogs, depoimentos e formulários de contato. Pelo editor da Nuvemshop, é possível personalizar cores, banners e imagens, além de integrar gateways de pagamento e plataformas de videoaulas.</p>
+                      <h3 id="masterstudy-lms-woocommerce">MasterStudy LMS (WooCommerce)</h3>
+                      <p><strong>Público:</strong> plataformas de e-learning e escolas online</p>
+                      <p><strong>Preço:</strong> depende do plugin LMS (algumas funcionalidades são gratuitas)</p>
+                      <p>O MasterStudy LMS é perfeito para criar cursos completos online. Ele inclui suporte para quizzes, certificados digitais, fóruns de discussão e gestão de assinaturas. O layout é totalmente responsivo e personalizável via WordPress, permitindo criar páginas detalhadas para cada curso.</p>
+                      <p>O tema integra-se diretamente com WooCommerce, possibilitando a venda de cursos digitais e planos de assinatura. Também suporta conteúdo multimídia, como vídeos e PDFs, tornando a experiência de aprendizado mais rica e envolvente.</p>
+                      <h3 id="elearning-opencart">eLearning (OpenCart)</h3>
+                      <p><strong>Público:</strong> instrutores individuais e pequenas escolas online</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O eLearning oferece um design funcional para a venda de cursos online e ebooks. A página inicial pode destacar cursos populares, novos lançamentos e promoções. O tema é leve, rápido e compatível com dispositivos móveis, facilitando a experiência do usuário.</p>
+                      <p>É possível adicionar avaliações de alunos, descrições detalhadas de cursos e formulários de contato. O tema também suporta módulos de desconto e programas de afiliados, ajudando a expandir a base de alunos e aumentar vendas.</p>
+                      <h3 id="edumarket-prestashop">EduMarket (PrestaShop)</h3>
+                      <p><strong>Público:</strong> empresas de ensino e academias online que vendem cursos digitais</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O EduMarket é ideal para lojas de educação que desejam uma plataforma robusta e internacional. Ele permite criar páginas detalhadas de cursos, pacotes de treinamento e materiais educativos. O tema é responsivo e personalizável, suportando múltiplos idiomas e métodos de pagamento.</p>
+                      <p>O tema inclui seções para blogs, depoimentos e landing pages promocionais. Com integração fácil com gateways de pagamento e ferramentas de marketing, o EduMarket transforma a venda de cursos online em uma experiência profissional e confiável para os alunos.</p>
+                      <h2 id="temas-de-ecommerce-para-supermercado-e-alimentos">Temas de e-Commerce para Supermercado e Alimentos</h2>
+                      <p>Os temas listados abaixo são voltados a lojas virtuais de supermercados, mercearias, padarias, mercados de alimentos e bebidas em geral.</p>
+                      <h3 id="royal-food-loja-integrada">Royal Food (Loja Integrada)</h3>
+                      <p><strong>Público:</strong> supermercados, mercearias e lojas de alimentos e bebidas</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O Royal Food oferece um layout moderno e intuitivo, ideal para lojas que desejam destacar categorias de produtos, promoções e combos. O tema é totalmente responsivo, garantindo boa experiência de navegação em dispositivos móveis e desktops.</p>
+                      <p>Inclui seções para banners rotativos, listas de produtos em destaque e integração com métodos de pagamento populares. O painel de controle da Loja Integrada permite personalizar cores, tipografia e imagens, além de inserir formulários de newsletter para captar leads e fidelizar clientes.</p>
+                      <h3 id="local-shopify">Local (Shopify)</h3>
+                      <p><strong>Público:</strong> mercados orgânicos, supermercados e lojas de alimentos especiais</p>
+                      <p><strong>Preço:</strong> a partir de US$ 180 (tema premium)</p>
+                      <p>O Local é perfeito para negócios que querem transmitir proximidade e autenticidade. Seu design limpo permite organizar categorias de produtos de forma clara e inclui filtros avançados para busca rápida de alimentos e bebidas.</p>
+                      <p>O tema também oferece integração com blogs e seções de receitas, ajudando a engajar clientes e aumentar o tráfego orgânico. Elementos interativos, como carrosséis de produtos e ícones sociais, tornam a experiência do usuário mais dinâmica.</p>
+                      <h3 id="recife-nuvemshop">Recife (Nuvemshop)</h3>
+                      <p><strong>Público:</strong> supermercados e lojas de alimentos e bebidas</p>
+                      <p><strong>Preço:</strong> incluso na assinatura da plataforma</p>
+                      <p>O Recife traz um layout minimalista e organizado, destacando produtos frescos e promoções semanais. Ele oferece seções prontas para banners, categorias e destaques de produtos, facilitando a navegação e a conversão.</p>
+                      <p>Com personalização fácil por arrastar e soltar, você pode inserir vídeos, banners de oferta e integrar redes sociais. Ideal para pequenos e médios negócios que desejam um visual limpo, profissional e de fácil manutenção.</p>
+                      <h3 id="quickmart-woocommerce">QuickMart (WooCommerce)</h3>
+                      <p><strong>Público:</strong> supermercados, mercearias e lojas de alimentos e bebidas</p>
+                      <p><strong>Preço:</strong> gratuito com opções premium adicionais</p>
+                      <p>O QuickMart oferece design moderno e responsivo, ideal para lojas que precisam exibir grande quantidade de produtos de maneira organizada. Ele possui categorias destacadas, promoções em banners e suporte a múltiplos métodos de pagamento.</p>
+                      <p>Compatível com WooCommerce, permite integração completa com plugins de SEO, marketing e logística. Além disso, é facilmente personalizável com cores, fontes e banners, criando uma identidade visual consistente com sua marca.</p>
+                      <h3 id="metro-market-opencart">Metro Market (OpenCart)</h3>
+                      <p><strong>Público:</strong> supermercados, mercados de produtos frescos e lojas de alimentos</p>
+                      <p><strong>Preço:</strong> a partir de US$ 59 (tema premium)</p>
+                      <p>O Metro Market oferece design limpo e responsivo, ideal para destacar categorias, produtos em promoção e lançamentos. Ele inclui recursos específicos para e-commerce de alimentos, como destaque de produtos frescos e integrações com filtros avançados.</p>
+                      <p>O tema permite customização de cores e fontes, banners rotativos e criação de páginas de promoções. Também conta com suporte para módulos adicionais de OpenCart, como avaliações de produtos e carrinho rápido, facilitando a experiência de compra.</p>
+                      <h3 id="freshg-prestashop">FreshG (PrestaShop)</h3>
+                      <p><strong>Público:</strong> supermercados, mercearias e lojas de alimentos e bebidas</p>
+                      <p><strong>Preço:</strong> a partir de €69 (tema premium)</p>
+                      <p>O FreshG é um tema moderno e responsivo, projetado para lojas com grande volume de produtos. Ele inclui seções para promoções, categorias destacadas e produtos em destaque, além de layout limpo que facilita a navegação do cliente.</p>
+                      <p>Com integração nativa ao PrestaShop, o FreshG permite personalização completa de cores, tipografia, banners e formulários de newsletter. Recursos como carrosséis de produtos, filtros avançados e otimização para SEO ajudam a aumentar conversões e a fidelizar clientes.</p>
+                      <h2 id="perguntas-frequentes-faq">Perguntas Frequentes (FAQ)</h2>
+                      <h3 id="qual-e-o-melhor-tema-de-ecommerce">1. Qual é o melhor tema de e-commerce?</h3>
+                      <p>Não existe um único tema que seja considerado “o melhor” para todas as lojas virtuais. O ideal é identificar aquele que mais se adapta às necessidades do seu negócio, levando em conta aspectos como design, funcionalidades, velocidade de carregamento e compatibilidade com diferentes dispositivos. Um bom tema é aquele que ajuda a transmitir a identidade da sua marca e facilita a experiência de compra do cliente.</p>
+                      <h3 id="onde-posso-comprar-ou-baixar-temas-para-minha-loja-virtual">2. Onde posso comprar ou baixar temas para minha loja virtual?</h3>
+                      <p>Os temas podem ser adquiridos em diferentes locais. Você pode encontrá-los nas próprias plataformas de e-commerce, como <strong>Shopify</strong>, <strong>PrestaShop</strong> e <strong>WooCommerce</strong>, ou em marketplaces especializados, como <strong>ThemeForest</strong> e <strong>TemplateMonster</strong>. Além disso, algumas soluções completas, como o <strong>Criador de Sites da Hostinger</strong>, já oferecem diversos modelos prontos dentro da assinatura, economizando tempo e custos adicionais.</p>
+                      <h3 id="como-escolher-o-tema-ideal-para-minha-loja">3. Como escolher o tema ideal para minha loja?</h3>
+                      <p>A escolha do tema é uma decisão estratégica. Ao avaliar, leve em consideração:</p>
+                      <ul>
+                          <li><strong>Segmento da loja:</strong> temas voltados para moda, tecnologia, alimentação, serviços, entre outros.</li>
+                          <li><strong>Experiência do usuário:</strong> navegação intuitiva, menus claros e responsividade em dispositivos móveis.</li>
+                          <li><strong>Funcionalidades:</strong> carrinho de compras otimizado, filtros avançados, páginas de produto detalhadas e suporte a diferentes meios de pagamento.</li>
+                          <li><strong>Personalização:</strong> flexibilidade para alterar cores, fontes, banners e layout de acordo com a identidade visual da sua marca.</li>
+                          <li><strong>SEO e desempenho:</strong> verifique se o tema é otimizado para mecanismos de busca e garante bom tempo de carregamento.</li>
+                      </ul>
+                      <h3 id="preciso-saber-programar-para-usar-um-tema">4. Preciso saber programar para usar um tema?</h3>
+                      <p>Na maioria dos casos, não. Muitas plataformas modernas oferecem editores visuais do tipo <em>drag and drop</em> (“arrastar e soltar”), que permitem personalizar o design da loja sem exigir conhecimentos técnicos. No entanto, se você deseja realizar personalizações mais avançadas, pode ser necessário ter noções básicas de HTML, CSS ou contar com a ajuda de um desenvolvedor.</p>
+                      <h3 id="posso-trocar-de-tema-depois-que-minha-loja-ja-estiver-no-ar">5. Posso trocar de tema depois que minha loja já estiver no ar?</h3>
+                      <p>Sim, é possível trocar o tema mesmo após a loja estar publicada. Porém, é importante ter em mente que algumas mudanças podem impactar a estrutura, a formatação ou até mesmo a disposição de imagens e textos. Por isso, o ideal é sempre testar o novo tema em um ambiente de pré-visualização antes de aplicá-lo definitivamente, garantindo que a experiência do cliente não seja prejudicada.</p>
+                      <h3 id="os-temas-gratuitos-valem-a-pena">6. Os temas gratuitos valem a pena?</h3>
+                      <p>Os temas gratuitos podem ser uma ótima opção para quem está começando e deseja economizar, já que oferecem recursos básicos suficientes para colocar uma loja no ar. No entanto, eles podem ter limitações de design, personalização e suporte técnico. Se o objetivo é escalar o negócio e oferecer uma experiência diferenciada, vale a pena considerar investir em um tema premium.</p>
+                      <h3 id="um-tema-influencia-nas-vendas-da-minha-loja">7. Um tema influencia nas vendas da minha loja?</h3>
+                      <p>Sim, e muito. O tema é responsável pela primeira impressão que o cliente tem da sua loja. Um design profissional, aliado a uma navegação simples e rápida, pode aumentar o tempo de permanência, reduzir a taxa de abandono e, consequentemente, melhorar as conversões. Portanto, escolher um tema adequado é um passo essencial para o sucesso do e-commerce.</p>
+                  </div>
+                  
+
+                 
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="container pt-3">
+            <div class="pt-4 pb-4 pt-md-5">
+
+
+                <div class="row">
+                    <div class="col-12 col-md-4 summary">
+                        <div class="pr-0 pr-md-4">
+                            <p class="h6">PowerTemplates</p>
+                            <div class="text-left mt-0 mb-3">
+                                <p class="small d-block">
+
+
+
+
+                                    <br>Todos os direitos reservados
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-4 institutional">
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 information">
+                        <p class="h6">Informações</p>
+                        <ul class="list-unstyled">
+                            <li><a href="https://powertemplates.github.io/temas-para-loja-integrada">Temas Loja Integrada</a></li>
+                            <li><a href="https://powertemplates.github.io/temas-para-nuvemshop">Temas Nuvemshop</a></li>
+                            <li><a href="https://powertemplates.github.io/temas-para-shopify">Temas Shopify</a></li>
+			                      <li><a href="https://powertemplates.github.io/tema-impact-shopify">Tema Impact Shopify</a></li>
+                            <li><a href="https://powertemplates.github.io/tema-betheme">Tema BeTheme</a></li>
+							              <li><a href="https://powertemplates.github.io/templates-para-woocommerce">Templates para WooCommerce</a></li>
+                            <li><a href="https://powertemplates.github.io/melhores-temas-para-wordpress">Temas para WordPress</a></li>
+                            <li><a href="https://powertemplates.github.io/melhores-templates-sites-de-venda">Templates para Sites de Venda</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-md-2 ml-auto mb-3 social-media">
+                        <p class="h6 mb-3">Redes sociais</p>
+                        <ul class="social-media-list list-inline mb-0">
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        footer a {
+            color: #666;
+        }
+    </style>
+
+    <div class="direitos">
+        <div class="text-center fonte-padrao">
+            
+        </div>
+    </div>
+
+    <style>
+        .direitos,
+        .direitos *,
+        .direitos::before,
+        .direitos::after,
+        .direitos>div,
+        .direitos div,
+        .direitos div a,
+        .direitos strong {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 98 !important;
+            pointer-events: auto !important;
+            height: auto !important;
+            width: auto !important;
+            max-height: none !important;
+            max-width: none !important;
+        }
+    </style>
+
+</body>
+
+</html>
+
