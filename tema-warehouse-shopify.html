@@ -1,0 +1,1927 @@
+<!doctype html>
+<html lang="pt-BR">
+	
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+        integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        .rounded-lg {
+            border-radius: .8rem !important
+        }
+
+        .form-row .owl-carousel [class*=col-] {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .page-link:focus,
+        .btn.focus,
+        .btn:focus {
+            box-shadow: none;
+        }
+
+        .custom-control-input:focus:not(:checked)~.custom-control-label::before,
+        .custom-control-input:focus~.custom-control-label::before,
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #999999;
+        }
+
+        .scrollable {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-] {
+            background: #bbb !important;
+            color: #ffffff !important;
+            width: 30px;
+            height: 30px;
+            line-height: 32px !important;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .owl-carousel .owl-nav [class*=owl-]:hover {
+            background: #999;
+            border-radius: 30px;
+            color: #FFF;
+        }
+
+        .owl-carousel .owl-prev,
+        .owl-carousel .owl-next {
+            position: absolute;
+            top: 35%;
+            height: 30px;
+            margin: auto !important;
+        }
+
+        .owl-carousel .owl-prev {
+            left: 0px;
+        }
+
+        .owl-carousel .owl-next {
+            right: 0px;
+        }
+
+        .owl-carousel.brands-carousel .owl-stage,
+        .owl-carousel.products-carousel .owl-stage,
+        .owl-carousel.testimonials-carousel .owl-stage {
+            display: flex;
+        }
+
+        .owl-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .owl-carousel .item .product-list-item {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .card-product .discount {
+            left: 8px;
+            top: 7px;
+            z-index: 7;
+        }
+
+        .card-product .img-wrap img {
+            object-fit: cover;
+        }
+
+        .block {
+            padding: 20px 0;
+        }
+
+        .block-header {
+            text-align: center;
+        }
+
+        .block-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            color: #6c757d;
+        }
+
+        .block-products {
+            padding-bottom: 0px !important;
+        }
+
+        /* theme */
+        .box-meio {
+            background: #fff;
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .wrapper .container:last-child .box-meio:last-child {
+            padding-bottom: 50px;
+        }
+
+        .page-title .h4 {
+            padding: 30px 0 30px 0;
+            margin: 0;
+        }
+
+        /* brands carousel <-- */
+        .brands-carousel .owl-stage {
+            display: flex;
+        }
+
+        .brands-carousel .item {
+            display: flex;
+            flex: 1 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+
+        .block-brands .box {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            min-height: 60px;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* brands carousel --> */
+
+        /* desktop */
+        @media (min-width: 991px) {}
+
+        /* mobile */
+        @media (max-width: 990px) {
+            .page-title .h4 {
+                padding: 20px 0 20px 0;
+            }
+
+            .box-meio.bg-transparent {
+                margin: 0;
+            }
+
+            .block .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@1.10.14/src/bootstrap-input-spinner.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"
+        integrity="sha512-gDWSGGWzTc0mD1P0NwDUsZsSrSyLsC8Mv0I14JtDFJXu2Pgo3ik5Uk1+BqxosbEJU2gDUD6W5DCpn7l29Ah9Ag=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"
+        integrity="sha512-BPbay65HZK0I/A8rKJYm1oLFOUaPUrxOfyx89UMVTpPzuc0uVASMcSk1QokHAuf9nti43BDcrLwappGfJSuJBA=="
+        crossorigin="anonymous"></script>
+    <script>
+        function validarCPF(cpf) {
+
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf == '') return false;
+
+            if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" ||
+                cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
+                return false;
+
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(9)))
+                return false;
+
+            add = 0;
+            for (i = 0; i < 10; i++)
+                add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(10)))
+                return false;
+
+            return true;
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        $(document).ready(function () {
+
+            $(".data").mask("00/00/0000", { clearIfNotMatch: true });
+            $('.cep').mask('00000-000', { clearIfNotMatch: true });
+            $(".cpf").mask("000.000.000-00", { clearIfNotMatch: true });
+            $(".cnpj").mask("00.000.000/0000-00", { clearIfNotMatch: true });
+            $('.valor').mask('000.000.000.000.000,00', { reverse: true });
+            $('.card-expiration-date').mask('00/00');
+            $('.card-number').mask('0000 0000 0000 0000');
+            $('.card-cvv').mask('0000');
+
+            var SPMaskBehavior = function (val) { return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'; },
+                spOptions = { onKeyPress: function (val, e, field, options) { field.mask(SPMaskBehavior.apply({}, arguments), options); } };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+
+            // auto scroll to div
+            if ($(".scroll-to-here")[0]) {
+                var $anchor = $('.scroll-to-here').offset();
+                $('html, body').animate({ scrollTop: $anchor.top - 0 }, 1000);
+            }
+
+            $('.show-loading').click(function () {
+                $('.loading').fadeIn();
+            });
+
+            $('form').on('keyup', '.cep', function () {
+                var cep = $(this).val();
+                var url = $(this).attr('url');
+                var $endereco = $(this).parents('.endereco');
+                if (cep != "" && cep.length == 9) {
+                    $.ajax({
+                        type: 'get',
+                        url: url + '/' + cep,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.data.bairro != '') {
+                                $endereco.find(".logradouro").val(data.data.logradouro);
+                                $endereco.find(".bairro").val(data.data.bairro);
+                                $endereco.find(".cidade").val(data.data.cidade);
+                                $endereco.find(".uf").val(data.data.uf);
+                                $endereco.find(".numero").focus();
+                            }
+                        }
+                    });
+                }
+            });
+
+            $(".cpf").keyup(function () {
+                cpf = $(this).val().replace(/[^\d]+/g, '');
+                if (cpf.length == 11 && validarCPF($(this).val()) == false) {
+                    alert('O CPF ' + $(this).val() + ' inserido não é válido.')
+                    $(this).val('');
+                }
+            });
+
+            $('.copy-to-clipboard').click(function (e) {
+                e.preventDefault();
+                const el = document.createElement('textarea');
+                document.body.appendChild(el);
+                el.value = $(this).data('text');
+                el.select();
+                el.focus();
+                el.setSelectionRange(0, 99999);
+
+                try {
+                    document.execCommand('copy');
+                    alert('Conteúdo copiado com sucesso');
+                } catch (err) {
+                    alert('Desculpe, seu navegador não copiou o conteúdo.');
+                }
+
+                document.body.removeChild(el);
+            });
+
+            if ($.fn.owlCarousel) {
+                $('.products-carousel').owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: true,
+                    dots: false,
+                    slideBy: 4,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: false,
+                            items: 2
+                        },
+                        600: {
+                            dots: false,
+                            items: 3
+                        },
+                        1000: {
+                            dots: false,
+                            items: 4
+                        }
+                    }
+                });
+
+                $('.brands-carousel').owlCarousel({
+                    loop: false,
+                    nav: true,
+                    margin: 8,
+                    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+                    responsive: {
+                        0: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 2,
+                            items: 2
+                        },
+                        600: {
+                            dots: true,
+                            nav: false,
+                            slideBy: 3,
+                            items: 3
+                        },
+                        1000: {
+                            dots: true,
+                            nav: true,
+                            slideBy: 6,
+                            items: 6
+                        }
+                    }
+                });
+            }
+
+        })
+
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://powertemplates.github.io/tema-warehouse-shopify" />
+
+    <link rel="icon" type="image/png" href="https://powertemplates.github.io/favicon-32x32.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        body,
+        .product-text * {
+            font-family: 'Titillium Web' !important;
+        }
+    </style>
+
+    <style>
+        .fonte-padrao,
+        .btn,
+        .fonte-menu,
+        .fonte-titulo {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-menu {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium Web&display=swap" rel="stylesheet">
+    <style>
+        .fonte-titulo,
+        .block-title {
+            font-family: 'Titillium Web';
+        }
+    </style>
+
+
+    <style>
+        header,
+        header.complete,
+        header.minimal {
+            background-color: #111111 !important;
+        }
+
+        header,
+        header a,
+        header.minimal h1,
+        header.minimal .back-icon a,
+        header .shortcuts .nav-item a {
+            color: #ffffff !important;
+        }
+
+        header.header-156848294 .search-wrap .input-group input,
+        header.header-156848294 .search-wrap .input-group button {
+            color: #ffffff !important;
+        }
+
+        .section-header,
+        .nav-mobile .line-1,
+        .nav-mobile .line-2 {
+            background-color: #111111 !important;
+        }
+
+        .section-header,
+        .section-header a,
+        .nav-mobile .line-1,
+        .nav-mobile .line-1 a,
+        .nav-mobile .line-1 i {
+            color: #ffffff !important;
+        }
+
+        .category-list,
+        .shortcuts-mobile-area {
+            background-color: #ffffff !important;
+        }
+
+        .category-list .item a,
+        .shortcuts-mobile-area,
+        .shortcuts-mobile-area a {
+            color: #212529 !important;
+        }
+
+        .nav-principal,
+        .menu-mobile {
+            background-color: #ffffff !important;
+        }
+
+        .menu-principal li>a.nav-link,
+        .menu-mobile .nav-link,
+        .menu-principal li>a.nav-link:hover,
+        .menu-mobile .nav-link:hover {
+            color: #212529 !important;
+        }
+
+
+
+
+
+        footer,
+        .direitos {
+            background-color: #111111;
+        }
+
+        footer,
+        footer a,
+        footer a:hover,
+        .direitos,
+        .direitos a,
+        .direitos a:hover {
+            color: #ffffff !important;
+        }
+
+        .section-footer,
+        .section-subscribe {
+            background-color: #111111;
+        }
+
+        .section-footer,
+        .section-subscribe,
+        .section-footer a,
+        .section-subscribe a {
+            color: #ffffff !important;
+        }
+    </style>
+
+    <!-- custom css -->
+    <style> </style>
+    <!-- end custom css -->
+
+    <title>Tema Warehouse para Shopify: análise completa, vantagens e para quem vale a pena - PowerTemplates</title>
+
+    <meta name="description" content="">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="PowerTemplates" />
+    <meta property="og:title" content="Tema Warehouse para Shopify: análise completa, vantagens e para quem vale a pena - PowerTemplates" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer="" data-domain="powertemplates.github.io" src="script.js"></script>
+
+    <!-- custom -->
+
+    <!-- end custom -->
+</head>
+
+<body class="internal">
+
+    <div class="loading"><i class="fas fa-spinner fa-3x fa-spin"></i></div>
+
+    <style>
+        .loading {
+            display: none;
+            background: rgba(0, 0, 0, .5);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+            color: #fff;
+            text-shadow: 0px 0px 30px #000;
+            padding-top: 200px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+
+    <div class="cookiealert-area">
+        <div class="alert text-center cookiealert rounded" role="alert" style="opacity:0.9;">
+            Ao navegar neste site você aceita o uso de cookies para criar uma melhor experiência de navegação.
+
+            <button type="button" class="btn btn-light btn-sm acceptcookies">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+    <style>
+        .cookiealert-area {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            bottom: 15px;
+            z-index: 9999;
+            max-width: 900px;
+        }
+
+        @media (max-width: 990px) {
+            .cookiealert-area {
+                width: 85%;
+            }
+        }
+    </style>
+
+    <div class="zap">
+        <a href="" aria-label="Conversar no WhatsApp" target="_blank"
+            class="box-zap zap-floating-button text-decoration-none">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <style>
+        .messenger {
+            right: 85px !important;
+        }
+
+        .zap {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 99;
+        }
+
+        .box-zap {
+            width: 60px;
+            height: 60px;
+            background: #23B847;
+            border-radius: 50%;
+            color: #fff !important;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            margin: 2px;
+            padding: 10px;
+            font-size: 34px;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.banners-topo-carousel').owlCarousel({
+                autoplay: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                autoHeight: true,
+                loop: true,
+                margin: 0,
+                dots: false,
+                nav: false,
+                slideBy: 1,
+                items: 1
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <header class="section-header d-none d-sm-none d-md-block header-165737185">
+        <section class="header-main pt-4 pt-md-4 pb-md-4">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3">
+                        <div class="logo text-left">
+                            <a href="https://powertemplates.github.io/">
+                                <h1 class="logo-text">PowerTemplates</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6">
+                        <form action="https://powertemplates.github.io/produtos" method="get" class="search-wrap">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control" name="term" value="Buscar produto"
+                                    onfocus="if (this.value === 'Buscar produto' || this.value === 'Search product') this.value = '';">
+                                <div class="input-group-append">
+                                    <button class="btn btn-link" type="submit">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-3 pl-sm-0">
+                        <div class="float-none float-sm-right">
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <div class="nav-mobile d-md-none">
+        <nav class="navbar navbar-light">
+
+            <div class="line-1 px-3">
+                <div class="row no-gutters align-items-center h-100">
+
+                    <div class="col-auto mr-3">
+                        <a href="#" class="open-sidebar" data-section="category" data-from="left">
+                            <div class="icon-wrap">
+                                <i class="bi bi-list"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <div class="logo text-left">
+                            <a href="https://powertemplates.github.io/">
+                                <h1 class="logo-text">PowerTemplates</h1>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-3 text-right">
+                        <div class="d-inline-flex align-items-center">
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="line-2 px-3 pt-1 pb-3">
+                <form action="https://powertemplates.github.io/produtos" method="get" class="search-wrap">
+                    <div class="input-group border">
+                        <input type="text" class="form-control border-0" placeholder="Buscar por produto" name="term"
+                            value="">
+                        <div class="input-group-btn">
+                            <button class="btn" type="submit">
+                                <i class="bi bi-search text-muted"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+
+    <style>
+        header a {
+            color: #6c757d;
+        }
+
+        header a:hover {
+            text-decoration: none;
+        }
+
+        header .logo img {
+            max-height: 100px;
+            max-width: 220px;
+        }
+
+        header .icon-wrap i {
+            font-size: 30px;
+            margin-right: 5px;
+        }
+
+        header .cart .icon-wrap i {
+            font-size: 27px;
+            margin-right: 8px;
+        }
+
+        header .cart-counter {
+            border-radius: 50px;
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            margin-left: 0 !important;
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
+        header .search-wrap .input-group {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        header .search-wrap input {
+            border: none;
+            border-radius: 5px !important;
+            margin: 1px !important;
+        }
+
+        header .search-wrap button {
+            margin: 1px;
+            color: #999;
+        }
+
+        header .social-media-list li {
+            margin-bottom: 0 !important;
+        }
+
+        header .social-media-list a {
+            font-size: 12px;
+        }
+
+
+        /* tablet */
+        @media (max-width: 768px) {
+
+            header.header-3 .text-wrap,
+            header.header-4 .text-wrap,
+            header.header-5 .text-wrap {
+                display: none;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            body.menu-in {
+                overflow: hidden;
+                padding-top: 166px;
+            }
+
+            .nav-mobile nav {
+                padding: 0px;
+            }
+
+            .nav-mobile .logo img {
+                max-height: 80px;
+            }
+
+            .nav-mobile .navbar-toggler {
+                display: block;
+            }
+
+            .nav-mobile .line-1 {
+                height: 100px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .nav-mobile .line-1 i {
+                color: #6c757d;
+                font-size: 24px !important;
+                padding: 5px 0;
+            }
+
+            .nav-mobile .logo-text {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #6c757d;
+                font-size: 22px;
+            }
+
+            .nav-mobile .cart {
+                position: relative;
+                text-align: right;
+                display: inline-block;
+            }
+
+            .nav-mobile .cart .badge {
+                position: absolute;
+                right: -3px;
+                top: -3px;
+            }
+
+            .nav-mobile a {
+                color: #fff;
+                position: relative;
+            }
+
+            .nav-mobile .line-2 {
+                width: 100%;
+            }
+
+            .nav-mobile .line-2 .btn {
+                background: #fff !important;
+                border: none;
+                width: 36px;
+                height: 36px;
+                padding: 0px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .nav-mobile .line-2 .input-group {
+                background: #fff;
+                border-radius: .25rem;
+            }
+        }
+    </style>
+
+
+
+
+    <style>
+        .offcanvas-collapse {
+            position: fixed;
+            top: 0px;
+            z-index: 10;
+            bottom: 0;
+            width: 80%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            overflow-y: auto;
+            visibility: hidden;
+            background-color: #eee;
+            box-shadow: 3px 0px 25px #666;
+            right: -100%;
+            transition-property: right, visibility;
+            transition-timing-function: ease-in-out;
+            transition-duration: .3s;
+        }
+
+        .offcanvas-collapse.open {
+            right: 0;
+            visibility: visible;
+        }
+
+        .offcanvas-collapse.left {
+            left: -100%;
+            transition-property: left, visibility;
+            right: unset;
+        }
+
+        .offcanvas-collapse.left.open {
+            left: 0;
+            right: unset;
+        }
+
+
+
+        .offcanvas-bg-overlay {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9;
+            opacity: 0.5;
+            display: none;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
+        }
+
+
+        /* desktop */
+        @media (min-width: 990px) {
+            .offcanvas-collapse {
+                width: 440px;
+            }
+        }
+    </style>
+
+    <div class="offcanvas-bg-overlay close-sidebar"></div>
+
+    <div class="sidebar py-3 px-4 navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+
+        <div class="sidebar-section sidebar-category">
+            <div class="sidebar-header pb-3">
+                &nbsp;
+
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul class="navbar-nav ml-auto mt-2 nav-categories-level-1 border-top">
+                </ul>
+
+
+            </div>
+        </div>
+
+        <script>
+            function showNavCategoriesLevel1() {
+                $('.nav-categories-level-2').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-1').fadeIn('fast');
+                });
+            }
+
+            function showNavCategoriesLevel2(id) {
+                $('.nav-categories-level-1').fadeOut('fast').promise().done(function () {
+                    $('.nav-categories-level-2.nav-category-children-' + id).fadeIn();
+                });
+            }
+
+            $(document).ready(function () {
+
+                $('.nav-categories-go-level-1').click(function (e) {
+                    showNavCategoriesLevel1();
+                    e.preventDefault();
+                });
+
+                $('.nav-categories-go-level-2').click(function (e) {
+                    var categoryId = $(this).data('id');
+                    showNavCategoriesLevel2(categoryId);
+                    e.preventDefault();
+                });
+
+            })
+        </script>
+
+        <div class="sidebar-section sidebar-search">
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Pesquisar</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+            <div class="sidebar-content">
+                <form action="https://powertemplates.github.io/produtos" method="get" class="mt-5">
+                    <div class="form-group">
+                        <label>Buscar produto</label>
+                        <input type="text" class="form-control" name="term">
+                    </div>
+                    <button class="btn btn-primary btn-principal" type="submit">
+                        <i class="fa fa-search"></i> Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <div class="sidebar-section sidebar-account">
+    <div class="sidebar-header">
+        <h4 class="fonte-titulo">Minha conta</h4>
+        <i class="fas fa-times close-button close-sidebar"></i>
+    </div>
+    <div class="sidebar-content">
+                    <div class="mt-5">
+                <a href="https://powertemplates.github.io/identificacao#cadastrar" class="btn btn-primary btn-principal d-block mt-4">
+                    Criar minha conta
+                </a>
+                <a href="https://powertemplates.github.io/identificacao#login" class="btn btn-primary btn-principal d-block mt-4">
+                    Já tenho cadastro
+                </a>
+            </div>
+            </div>
+</div> -->
+
+        <div class="sidebar-section sidebar-cart">
+
+            <div class="sidebar-header">
+                <h4 class="fonte-titulo">Carrinho</h4>
+                <i class="fas fa-times close-button close-sidebar"></i>
+            </div>
+
+            <div class="sidebar-content mt-4">
+                <div class="cart">
+
+                    <p>Seu carrinho está vazio.</p>
+
+                </div>
+
+                <style>
+                    .cart .gift-label {}
+
+                    .cart .cart-item.gift {
+                        background-color: #fff;
+                        padding: 10px 10px 8px 10px !important;
+                    }
+
+                    .cart .form-qtd label {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 2px;
+                    }
+
+                    .cart .spinner-input-sm {
+                        max-width: 120px;
+                    }
+
+                    .cart .price {
+                        color: #777;
+                        font-weight: normal;
+                    }
+
+                    .cart .img-thumbnail {
+                        width: 80px;
+                    }
+
+                    .cart .one-column>div {
+                        max-width: 100%;
+                        flex: 100%;
+                    }
+
+                    .cart .form-qtd label {
+                        display: none;
+                    }
+
+                    .cart .btn-texto {
+                        display: block !important;
+                    }
+
+                    .cart .btn-botao {
+                        display: none;
+                    }
+
+                    .cart .col-price-del {
+                        width: 100%;
+                        max-width: 100%;
+                        margin-left: 0 !important;
+                        flex: 100%;
+                    }
+                </style>
+
+                <script>
+                    $(document).ready(function () {
+
+                        $(".spinner-input-sm").inputSpinner({ groupClass: "input-group-sm" })
+
+                    });
+                </script>
+
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('.show-quote-form').click(function () {
+                    $('.form-quote-area, .qtd-hidden').show();
+                    $('.sidebar-cart .form-edit, .sidebar-cart .delete-column').hide();
+                    $(this).hide();
+                })
+            });
+        </script>
+
+
+    </div>
+
+    <style>
+        .sidebar .nav-link {
+            color: #333;
+            font-size: 18px;
+            display: block;
+            position: relative;
+        }
+
+        .sidebar .dropdown-menu {
+            position: static !important;
+            transform: none !important;
+        }
+
+        .sidebar .dropdown-toggle::after {
+            position: absolute;
+            top: 21px;
+            right: 0;
+            font-size: 18px;
+        }
+
+        .sidebar-header {
+            position: relative;
+        }
+
+        .sidebar-header .close-button {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            top: 0px;
+            font-size: 20px;
+            background: #fff;
+            border-radius: 38px;
+            line-height: 35px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+
+        .sidebar-header h4 {
+            margin-top: 15px;
+        }
+
+
+	.main-post-img {
+          max-width: 900px;
+        }
+        
+        figcaption {
+          text-align: center;
+          margin-top: 7px;
+        }
+
+        /* mobile */
+        @media (max-width: 990px) {}
+    </style>
+
+    <script>
+        $(function () {
+            'use strict'
+            $('[data-toggle="offcanvas"]').on('click', function () {
+                $('.offcanvas-collapse').toggleClass('open');
+            });
+        });
+
+        function openSidebar(section) {
+            $('.offcanvas-collapse').removeClass('open');
+            $('.sidebar .sidebar-section').hide();
+            $('.sidebar .sidebar-' + section).show();
+            $('.offcanvas-collapse').addClass('open');
+            $('.offcanvas-bg-overlay').hide().fadeIn('slow');
+            $('html, body').addClass('overflow-hidden');
+        }
+
+        $(document).ready(function () {
+
+            $('.open-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('left');
+                if ($(this).data('from') == 'left') {
+                    $('.offcanvas-collapse').addClass('left');
+                }
+                openSidebar($(this).data('section'));
+                return false;
+            });
+
+            $('.close-sidebar').click(function () {
+                $('.offcanvas-collapse').removeClass('open');
+                $('.offcanvas-bg-overlay').fadeOut('slow');
+                $('html, body').removeClass('overflow-hidden');
+                return false;
+            });
+
+
+        });
+    </script>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="box-meio">
+                <div class="page-title text-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="h4 fonte-titulo text-center">Tema Warehouse para Shopify: análise completa, vantagens e para quem vale a pena</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="box-meio">
+
+                <div class="mb-5 pb-5">
+
+					<div id="conteudo" style="max-width: 600px; margin: 0px auto;">
+
+						<p>O Warehouse é um <a href="https://turbotheme.neocities.org/temas-para-shopify" target="_blank" rel="noreferrer noopener">tema Shopify</a> premium desenvolvido especialmente para lojas que trabalham com catálogos extensos, muitas categorias e um grande volume de informações. Mais do que oferecer uma aparência moderna, ele busca tornar a navegação mais organizada e facilitar a descoberta de produtos, mesmo em e-commerces com centenas ou milhares de itens disponíveis.</p>
+
+						<p>Por essas características, o <a href="https://www.lojadetemas.com.br/warehouse-template-shopify/" target="_blank">tema Warehouse</a> pode ser uma alternativa bastante interessante para lojas de médio e grande porte, operações B2B e negócios que comercializam produtos com diversas variantes. Também se adapta bem a segmentos como tecnologia, moda, casa e decoração, nos quais uma estrutura de catálogo eficiente pode influenciar diretamente a experiência de compra.</p>
+
+						<p>Apesar da variedade de recursos, nem todo e-commerce precisa de uma estrutura tão robusta. Para lojas menores ou com poucos produtos, um tema mais simples pode atender às necessidades do negócio sem adicionar funcionalidades que dificilmente serão utilizadas.</p>
+
+						<p>Ao longo deste artigo, você vai conhecer os principais diferenciais do Warehouse, entender seus recursos, pontos positivos e limitações e avaliar em quais tipos de loja o investimento nesse tema pode realmente valer a pena.</p>
+
+
+						<h2>O que é o tema Warehouse?</h2>
+
+						<p>Warehouse é um tema premium para Shopify desenvolvido pela Maestrooo. Seu principal diferencial é a estrutura preparada para lojas com catálogos extensos.</p>
+
+						<p>O tema combina ferramentas de navegação, pesquisa, filtragem, merchandising e conversão para facilitar a apresentação de uma grande variedade de produtos sem depender exclusivamente de páginas simples ou coleções básicas.</p>
+
+						<p>Entre os recursos disponíveis estão mega menu, filtros de produtos, pesquisa avançada, compra rápida, visualização rápida, produtos recomendados, itens vistos recentemente, amostras de cores, banners promocionais e diferentes opções para páginas de produto.</p>
+
+						<p>Em outras palavras, o Warehouse tenta resolver um problema comum de grandes lojas: não basta ter muitos produtos disponíveis. É necessário ajudar o visitante a localizar, comparar e descobrir aquilo que deseja comprar.</p>
+
+						<h2>Warehouse vale a pena?</h2>
+
+						<p>O Warehouse tende a valer mais a pena quando a complexidade do catálogo já começou a exigir uma estrutura de navegação mais sofisticada.</p>
+
+						<p>Se uma loja possui centenas de produtos, diversas categorias, muitas variantes ou diferentes departamentos, recursos como filtros, pesquisa, mega menu e recomendações deixam de ser apenas conveniências e passam a ter impacto direto na experiência do consumidor.</p>
+
+						<p>Para uma loja com apenas dez ou vinte produtos, por outro lado, boa parte dessa estrutura pode ser desnecessária.</p>
+
+						<p>Por isso, a pergunta mais importante não é simplesmente se o Warehouse é um bom tema, mas se sua loja realmente precisa das ferramentas que ele oferece.</p>
+
+						<h2>Para quais lojas o Warehouse é mais indicado?</h2>
+
+						<p>O tema pode atender diversos segmentos, mas tende a oferecer maior valor para operações nas quais o catálogo possui uma estrutura mais complexa.</p>
+
+						<ul>
+						<li>Lojas com centenas ou milhares de produtos;</li>
+						<li>e-commerces com muitas categorias e subcategorias;</li>
+						<li>operações com grande quantidade de variantes;</li>
+						<li>lojas de eletrônicos e informática;</li>
+						<li>lojas de móveis, decoração e utilidades;</li>
+						<li>marcas de roupas, calçados e acessórios;</li>
+						<li>lojas de activewear e artigos esportivos;</li>
+						<li>operações de dropshipping com catálogos extensos;</li>
+						<li>negócios B2B;</li>
+						<li>lojas com alto volume de vendas;</li>
+						<li>operações Shopify Plus;</li>
+						<li>negócios que realizam campanhas e promoções com frequência.</li>
+						</ul>
+
+						<p>Uma loja pequena também pode utilizar o Warehouse, mas nesse caso é importante avaliar se o investimento e a quantidade de configurações disponíveis serão realmente aproveitados.</p>
+
+						<h2>O principal diferencial: organização de grandes catálogos</h2>
+
+						<p>É na organização do catálogo que o Warehouse mais se diferencia.</p>
+
+						<p>Quanto maior a quantidade de produtos de uma loja, maior tende a ser o esforço necessário para ajudar o consumidor a encontrar exatamente aquilo que procura.</p>
+
+						<p>Uma estrutura com centenas ou milhares de itens pode exigir filtros, pesquisa, categorias bem definidas, diferentes formas de ordenação e caminhos alternativos para descoberta de produtos.</p>
+
+						<p>O Warehouse reúne várias dessas ferramentas dentro do próprio tema, criando uma base adequada para operações nas quais navegar pelo catálogo faz parte importante da experiência de compra.</p>
+
+						<h2>Filtros e ordenação de produtos</h2>
+
+						<p>Os filtros ajudam o consumidor a reduzir rapidamente a quantidade de produtos exibidos em uma coleção.</p>
+
+						<p>Dependendo da estrutura dos produtos e dos dados configurados na Shopify, o visitante pode utilizar diferentes critérios para chegar mais rapidamente aos itens que atendem às suas necessidades.</p>
+
+						<p>Esse recurso é particularmente valioso em páginas que possuem dezenas ou centenas de produtos, já que evita a necessidade de percorrer listas excessivamente longas.</p>
+
+						<p>O Warehouse também trabalha com filtros que podem utilizar amostras visuais, algo especialmente útil quando atributos como cor possuem grande importância na decisão de compra.</p>
+
+						<h2>Mega menu para categorias complexas</h2>
+
+						<p>Um menu convencional pode funcionar perfeitamente em uma loja pequena, mas começa a apresentar limitações quando existem muitos departamentos e subcategorias.</p>
+
+						<p>O mega menu do Warehouse permite apresentar uma estrutura de navegação mais ampla, facilitando o acesso a diferentes áreas do catálogo.</p>
+
+						<p>Também é possível utilizar espaços do menu para destacar promoções ou determinados produtos.</p>
+
+						<p>O recurso, entretanto, não corrige uma arquitetura de informação ruim. Um catálogo mal organizado continuará sendo confuso mesmo com um mega menu sofisticado.</p>
+
+						<h2>Pesquisa e descoberta de produtos</h2>
+
+						<p>Quanto maior o catálogo, mais importante se torna a pesquisa interna.</p>
+
+						<p>Consumidores que já sabem o nome, modelo, categoria ou característica do produto desejado frequentemente preferem pesquisar diretamente em vez de navegar por diferentes departamentos.</p>
+
+						<p>O Warehouse inclui recursos de pesquisa e descoberta que complementam os filtros e o sistema de coleções.</p>
+
+						<p>Também oferece produtos recomendados e itens vistos recentemente, criando caminhos adicionais para o consumidor continuar navegando pela loja.</p>
+
+						<h2>Produtos vistos recentemente</h2>
+
+						<p>Em catálogos grandes, é comum que um visitante abra diversos produtos antes de decidir qual comprar.</p>
+
+						<p>A área de produtos vistos recentemente ajuda o consumidor a retornar rapidamente às opções que já analisou, sem precisar refazer pesquisas ou percorrer novamente as mesmas categorias.</p>
+
+						<p>É um recurso simples, mas particularmente útil quando a jornada de compra envolve comparação entre vários itens.</p>
+
+						<h2>Cross-selling e produtos recomendados</h2>
+
+						<p>O Warehouse também pode ajudar a apresentar produtos relacionados durante a navegação.</p>
+
+						<p>Uma loja de eletrônicos pode sugerir acessórios compatíveis com determinado equipamento. Uma loja de moda pode apresentar outras peças que combinam com o produto visualizado. Já uma loja de móveis pode recomendar objetos complementares para determinado ambiente.</p>
+
+						<p>Quando essas recomendações são relevantes, elas podem facilitar a descoberta de produtos e aumentar o valor médio dos pedidos.</p>
+
+						<h2>Visualização rápida e compra rápida</h2>
+
+						<p>Dois recursos interessantes para lojas com muitos produtos são a visualização rápida e a compra rápida.</p>
+
+						<p>A visualização rápida permite consultar informações de um item sem abandonar completamente a coleção que está sendo navegada.</p>
+
+						<p>Isso pode ser conveniente quando o consumidor está comparando várias opções.</p>
+
+						<p>A compra rápida reduz algumas das etapas necessárias para adicionar produtos ao carrinho. Ela tende a funcionar especialmente bem com itens simples ou produtos que o consumidor já conhece.</p>
+
+						<p>Produtos que exigem análise detalhada de especificações, tamanhos ou características ainda podem se beneficiar de uma página completa antes da compra.</p>
+
+						<h2>Páginas de produto</h2>
+
+						<p>Além da navegação pelo catálogo, o Warehouse oferece diferentes recursos para apresentação dos produtos.</p>
+
+						<ul>
+						<li>Galerias de imagens;</li>
+						<li>imagens de alta resolução;</li>
+						<li>zoom;</li>
+						<li>vídeos de produtos;</li>
+						<li>amostras de variantes;</li>
+						<li>abas de informações;</li>
+						<li>informações de uso;</li>
+						<li>dados de frete e entrega;</li>
+						<li>selos de produtos;</li>
+						<li>selos de confiança;</li>
+						<li>opções e variantes de produtos.</li>
+						</ul>
+
+						<p>Esses elementos são particularmente úteis quando a decisão de compra depende de detalhes visuais ou técnicos.</p>
+
+						<p>Um móvel pode exigir imagens de diferentes ângulos e informações sobre materiais. Um eletrônico pode precisar de especificações e vídeos. Uma roupa pode possuir diversas cores, tamanhos e variações.</p>
+
+						<h2>Amostras de cores</h2>
+
+						<p>Para produtos com variações visuais, o Warehouse permite trabalhar com amostras de cores.</p>
+
+						<p>Em vez de apresentar somente nomes como “Azul”, “Preto” ou “Verde”, a interface pode facilitar a identificação visual das alternativas disponíveis.</p>
+
+						<p>Esse tipo de recurso costuma ser particularmente útil em moda, calçados, acessórios, móveis, decoração e outros segmentos nos quais a aparência da variante possui grande importância.</p>
+
+						<h2>Abas para organizar informações</h2>
+
+						<p>Produtos complexos podem exigir descrições extensas, especificações, orientações de uso, informações sobre materiais, cuidados, frete e outros detalhes.</p>
+
+						<p>As abas ajudam a distribuir esse conteúdo em blocos mais fáceis de consultar, evitando que toda a informação seja apresentada em uma única sequência excessivamente longa.</p>
+
+						<h2>Ferramentas promocionais</h2>
+
+						<p>Além das funções relacionadas à organização do catálogo, o Warehouse possui recursos destinados a campanhas comerciais.</p>
+
+						<p>Banners e promoções dentro dos menus podem ser utilizados para destacar lançamentos, descontos, liquidações, coleções especiais e campanhas sazonais.</p>
+
+						<p>O segredo está na moderação. Uma grande quantidade de mensagens promocionais simultâneas pode competir pela atenção do visitante e prejudicar a hierarquia visual da página.</p>
+
+						<h2>Contador de estoque</h2>
+
+						<p>O tema também disponibiliza recursos para comunicar a disponibilidade de produtos.</p>
+
+						<p>Em determinados contextos, mostrar que existem poucas unidades pode ajudar o consumidor a entender a situação real do estoque.</p>
+
+						<p>Esse recurso deve, entretanto, estar sempre associado a informações verdadeiras. Criar artificialmente uma sensação de escassez pode prejudicar a credibilidade da loja.</p>
+
+						<h2>Carrinho deslizante</h2>
+
+						<p>O carrinho deslizante permite consultar rapidamente os produtos adicionados sem necessariamente abandonar a página atual.</p>
+
+						<p>Essa experiência pode funcionar bem em lojas nas quais o consumidor costuma adicionar vários produtos durante uma mesma visita.</p>
+
+						<p>Também existem recursos relacionados a observações no carrinho, embalagem para presente e retirada em loja, dependendo da configuração da operação.</p>
+
+						<h2>Os três presets do Warehouse</h2>
+
+						<p>O Warehouse possui três presets apresentados atualmente na Shopify Theme Store: Warehouse, Wood e Mesh.</p>
+
+						<p>Todos utilizam a mesma base do tema. O que muda é principalmente a configuração visual inicial, incluindo tipografia, composição das seções, imagens e estilo de apresentação.</p>
+
+						<h3>Warehouse</h3>
+
+						<p>O preset principal possui uma apresentação especialmente adequada para catálogos extensos e produtos de tecnologia.</p>
+
+						<p>Pode funcionar bem para eletrônicos, informática, equipamentos, áudio, vídeo e outros segmentos com muitos produtos e especificações.</p>
+
+						<p>Isso não impede seu uso em outras categorias, já que praticamente toda a aparência inicial pode ser personalizada.</p>
+
+						<h3>Wood</h3>
+
+						<p>O Wood apresenta uma direção visual que combina especialmente bem com produtos para casa e escritório.</p>
+
+						<p>Pode ser um bom ponto de partida para lojas de móveis, decoração, iluminação, organização, utilidades e acessórios para escritório.</p>
+
+						<h3>Mesh</h3>
+
+						<p>O Mesh possui uma abordagem mais associada a moda esportiva e activewear.</p>
+
+						<p>É uma configuração que pode funcionar bem para roupas esportivas, fitness, calçados, acessórios e marcas com muitas combinações de cores, modelos e tamanhos.</p>
+
+						<h2>Preset não é um tema diferente</h2>
+
+						<p>Warehouse, Wood e Mesh não são três temas independentes.</p>
+
+						<p>Os presets compartilham a mesma estrutura e recursos, funcionando apenas como configurações iniciais diferentes.</p>
+
+						<p>Por isso, uma loja de eletrônicos não é obrigada a escolher o preset Warehouse, assim como uma loja de móveis não precisa necessariamente começar pelo Wood.</p>
+
+						<p>O melhor preset é simplesmente aquele que reduz o trabalho necessário para chegar à aparência desejada.</p>
+
+						<h2>Personalização</h2>
+
+						<p>O Warehouse oferece uma quantidade considerável de configurações para alterar a apresentação da loja.</p>
+
+						<p>Produtos, seções, conteúdos e diferentes elementos da interface podem ser personalizados diretamente pelo ecossistema de temas da Shopify.</p>
+
+						<p>Também existe suporte ao uso de metacampos, que podem ser úteis para exibir informações estruturadas além dos campos convencionais de produtos.</p>
+
+						<p>Para catálogos técnicos, por exemplo, metacampos podem ser utilizados para organizar características, especificações e outras informações próprias de cada produto.</p>
+
+						<h2>É necessário saber programação?</h2>
+
+						<p>Não é necessário contratar um desenvolvedor simplesmente para instalar e configurar o Warehouse.</p>
+
+						<p>Grande parte das alterações pode ser realizada através do editor da Shopify e das opções oferecidas pelo próprio tema.</p>
+
+						<p>Quanto mais específico for o projeto, entretanto, maior a possibilidade de alguma alteração exigir conhecimentos de Liquid, HTML, CSS ou JavaScript.</p>
+
+						<p>Integrações muito específicas e layouts completamente personalizados também podem exigir desenvolvimento adicional.</p>
+
+						<h2>Desempenho e velocidade</h2>
+
+						<p>Desempenho é uma das áreas destacadas na proposta do Warehouse.</p>
+
+						<p>Isso não significa, entretanto, que qualquer loja utilizando o tema será automaticamente rápida.</p>
+
+						<p>A velocidade final de um e-commerce Shopify pode ser afetada por vários fatores, incluindo:</p>
+
+						<ul>
+						<li>imagens muito pesadas;</li>
+						<li>quantidade de aplicativos instalados;</li>
+						<li>scripts externos;</li>
+						<li>ferramentas de marketing;</li>
+						<li>vídeos;</li>
+						<li>widgets;</li>
+						<li>fontes externas;</li>
+						<li>integrações de terceiros;</li>
+						<li>código personalizado;</li>
+						<li>quantidade de elementos utilizados em cada página.</li>
+						</ul>
+
+						<p>Por isso, o desempenho deve ser avaliado com o conteúdo e os aplicativos reais da loja, não apenas observando a demonstração oficial do tema.</p>
+
+						<h2>Experiência no celular</h2>
+
+						<p>A navegação mobile merece atenção especial em qualquer projeto de e-commerce.</p>
+
+						<p>O Warehouse foi desenvolvido para funcionar em diferentes tamanhos de tela, mas a experiência final depende também da maneira como a loja é configurada.</p>
+
+						<p>Antes de publicar, vale testar no celular principalmente:</p>
+
+						<ul>
+						<li>menu e navegação;</li>
+						<li>pesquisa;</li>
+						<li>filtros;</li>
+						<li>coleções;</li>
+						<li>páginas de produto;</li>
+						<li>seleção de variantes;</li>
+						<li>visualização rápida;</li>
+						<li>compra rápida;</li>
+						<li>carrinho;</li>
+						<li>elementos adicionados por aplicativos.</li>
+						</ul>
+
+						<h2>Compatibilidade com aplicativos</h2>
+
+						<p>Nenhum tema Shopify deve ser considerado automaticamente compatível com absolutamente todos os aplicativos e personalizações disponíveis no ecossistema.</p>
+
+						<p>Aplicativos podem adicionar scripts, blocos, widgets e comportamentos específicos às páginas.</p>
+
+						<p>Se uma loja depende de recursos essenciais como assinaturas, avaliações, bundles, personalização de produtos, filtros especiais ou integrações B2B, o ideal é testar essas ferramentas com o Warehouse antes de publicar o novo tema.</p>
+
+						<h2>Warehouse para lojas B2B</h2>
+
+						<p>O Warehouse pode ser particularmente interessante em operações B2B que possuem grandes catálogos.</p>
+
+						<p>Pesquisa, filtros, navegação por categorias e compra rápida podem facilitar a rotina de compradores que retornam periodicamente à loja para adquirir diferentes itens.</p>
+
+						<p>É importante lembrar, entretanto, que o tema não substitui os recursos B2B da própria Shopify.</p>
+
+						<p>Contas empresariais, condições comerciais, catálogos específicos, pagamentos e outras funções desse tipo dependem da plataforma e da configuração da operação.</p>
+
+						<h2>Recursos para Shopify Plus</h2>
+
+						<p>O material atual do Warehouse também apresenta determinados recursos associados ao Shopify Plus, incluindo preços por quantidade e Combined Listings.</p>
+
+						<p>Essas funcionalidades podem ser relevantes para determinados modelos de venda, mas não devem ser consideradas recursos disponíveis da mesma forma em todos os planos Shopify.</p>
+
+						<h2>Lojas internacionais</h2>
+
+						<p>O Warehouse pode fazer parte de uma operação internacional, mas internacionalização não depende exclusivamente do tema.</p>
+
+						<p>O tema possui traduções informadas para inglês, francês, italiano, alemão e espanhol.</p>
+
+						<p>Já questões como diferentes moedas, mercados, domínios, impostos, formas de pagamento e regras de envio dependem das configurações e funcionalidades da plataforma Shopify utilizadas pela empresa.</p>
+
+						<h2>Quanto custa o Warehouse?</h2>
+
+						<p>Em agosto de 2026, o preço informado para o Warehouse na Shopify Theme Store é de <strong>US$ 320</strong>.</p>
+
+						<p>O pagamento da licença do tema é feito uma única vez para a loja na qual ele será utilizado, não funcionando como uma assinatura mensal do tema.</p>
+
+						<p>Como preços podem mudar, vale sempre verificar o valor apresentado na Theme Store antes da compra.</p>
+
+						<h2>Qual é a versão atual?</h2>
+
+						<p>Em agosto de 2026, a versão mais recente indicada no material analisado é a <strong>Warehouse 7.0.1</strong>, lançada em <strong>13 de março de 2026</strong>.</p>
+
+						<p>Esse detalhe é importante porque temas Shopify evoluem ao longo do tempo. Recursos, comportamentos e compatibilidade podem ser diferentes em instalações antigas.</p>
+
+						<p>Ao pesquisar problemas ou tutoriais sobre o Warehouse, confira sempre se a informação corresponde à versão utilizada pela sua loja.</p>
+
+						<h2>Avaliações do Warehouse</h2>
+
+						<p>Em agosto de 2026, o Warehouse apresenta <strong>84% de avaliações positivas</strong> na Shopify Theme Store, considerando <strong>325 avaliações</strong> de seus presets.</p>
+
+						<p>São 274 avaliações positivas, 13 neutras e 38 negativas.</p>
+
+						<p>A maioria das experiências registradas é positiva, mas existem também relatos de usuários envolvendo dificuldades com atualizações, necessidade de desenvolvimento adicional ou problemas específicos de determinados projetos.</p>
+
+						<p>Isso é importante porque avaliações ajudam a entender a percepção geral, mas não conseguem prever exatamente como o tema funcionará na estrutura de uma determinada loja.</p>
+
+						<h2>Principais vantagens do Warehouse</h2>
+
+						<ul>
+						<li>Especialização em grandes catálogos;</li>
+						<li>boa estrutura para coleções extensas;</li>
+						<li>filtros e ordenação de produtos;</li>
+						<li>mega menu;</li>
+						<li>pesquisa avançada;</li>
+						<li>filtros com amostras visuais;</li>
+						<li>produtos recomendados;</li>
+						<li>produtos vistos recentemente;</li>
+						<li>visualização rápida;</li>
+						<li>compra rápida;</li>
+						<li>cross-selling;</li>
+						<li>banners e promoções em menus;</li>
+						<li>amostras de cores;</li>
+						<li>contador de estoque;</li>
+						<li>boas opções para páginas de produto;</li>
+						<li>vídeos e imagens de alta resolução;</li>
+						<li>carrinho deslizante;</li>
+						<li>metacampos e diferentes opções de personalização;</li>
+						<li>recursos adicionais para Shopify Plus;</li>
+						<li>três presets para diferentes estilos de loja.</li>
+						</ul>
+
+						<h2>Principais limitações</h2>
+
+						<ul>
+						<li>O preço pode ser alto para uma loja pequena ou iniciante;</li>
+						<li>parte dos recursos pode ser desnecessária em catálogos reduzidos;</li>
+						<li>a quantidade de configurações aumenta a curva inicial de aprendizado;</li>
+						<li>um grande catálogo ainda precisa ser bem organizado pelo lojista;</li>
+						<li>personalizações muito específicas podem exigir desenvolvimento;</li>
+						<li>aplicativos externos precisam ser testados;</li>
+						<li>algumas funcionalidades dependem do Shopify Plus;</li>
+						<li>o desempenho final pode ser prejudicado por aplicativos, scripts e conteúdo pesado;</li>
+						<li>o visual precisa ser personalizado para marcas que desejam uma identidade mais exclusiva.</li>
+						</ul>
+
+						<h2>Quando eu escolheria o Warehouse?</h2>
+
+						<p>O Warehouse entra em uma categoria de <a href="https://powertemplates.github.io/temas-para-shopify" target="_blank">temas Shopify</a> que fazem mais sentido quando a estrutura comercial da loja começa a ficar complexa.</p>
+
+						<p>Eu consideraria o tema principalmente quando a operação possui uma combinação de vários dos seguintes fatores:</p>
+
+						<ul>
+						<li>grande quantidade de produtos;</li>
+						<li>muitas coleções;</li>
+						<li>muitas categorias e subcategorias;</li>
+						<li>produtos com diversas variantes;</li>
+						<li>necessidade forte de pesquisa interna;</li>
+						<li>dependência de filtros para encontrar produtos;</li>
+						<li>frequência elevada de promoções;</li>
+						<li>necessidade de recomendações e cross-selling;</li>
+						<li>crescimento acelerado do catálogo.</li>
+						</ul>
+
+						<p>Quanto mais desses pontos estiverem presentes, mais fácil se torna justificar um tema especializado em grandes catálogos.</p>
+
+						<h2>Quando eu escolheria outro tema?</h2>
+
+						<p>Se a loja possui poucos produtos, poucas categorias e uma jornada de compra muito simples, provavelmente não existe necessidade de utilizar toda a estrutura oferecida pelo Warehouse.</p>
+
+						<p>Nesse cenário, um tema gratuito ou premium mais simples pode permitir uma implantação mais rápida e exigir menos configuração.</p>
+
+						<p>Também vale considerar outra alternativa quando o projeto depende fortemente de um layout extremamente específico que precisaria modificar profundamente a estrutura original do Warehouse.</p>
+
+						<h2>Warehouse ou tema gratuito?</h2>
+
+						<p>A comparação não deve considerar apenas o preço inicial.</p>
+
+						<p>Um tema gratuito pode ser suficiente quando as necessidades da loja são simples.</p>
+
+						<p>Por outro lado, se for necessário instalar diversos aplicativos ou contratar desenvolvimento para reproduzir funções que já existem no Warehouse, o custo total de uma solução gratuita pode aumentar.</p>
+
+						<p>A decisão deve comparar o conjunto completo: tema, aplicativos, desenvolvimento, manutenção e tempo necessário para configurar a loja.</p>
+
+						<h2>Teste antes de comprar</h2>
+
+						<p>A possibilidade de testar um tema pago antes da publicação é especialmente útil no caso do Warehouse.</p>
+
+						<p>Em vez de decidir apenas com base nas demonstrações, configure uma versão de teste com produtos e coleções semelhantes aos que serão usados na loja real.</p>
+
+						<p>Durante o teste, observe principalmente:</p>
+
+						<ul>
+						<li>organização das coleções;</li>
+						<li>funcionamento dos filtros;</li>
+						<li>qualidade da pesquisa;</li>
+						<li>mega menu;</li>
+						<li>variações dos produtos;</li>
+						<li>páginas de produto;</li>
+						<li>compra e visualização rápida;</li>
+						<li>produtos recomendados;</li>
+						<li>carrinho;</li>
+						<li>experiência em smartphones;</li>
+						<li>compatibilidade com aplicativos importantes;</li>
+						<li>velocidade após adicionar conteúdo real.</li>
+						</ul>
+
+						<h2>Checklist: o que avaliar antes de escolher o Warehouse</h2>
+
+						<p>Antes da compra, responda às seguintes perguntas:</p>
+
+						<ul>
+						<li>Quantos produtos minha loja possui atualmente?</li>
+						<li>Quantos produtos pretendo ter nos próximos anos?</li>
+						<li>Meu catálogo possui muitas categorias?</li>
+						<li>Os clientes precisam utilizar filtros para encontrar produtos?</li>
+						<li>A pesquisa interna é importante para minha operação?</li>
+						<li>Tenho muitas variantes de cor, tamanho ou modelo?</li>
+						<li>Preciso de compra rápida ou visualização rápida?</li>
+						<li>Utilizo muitos aplicativos?</li>
+						<li>Preciso de personalizações específicas?</li>
+						<li>Minha operação utiliza Shopify Plus?</li>
+						<li>O investimento de US$ 320 faz sentido dentro do orçamento?</li>
+						</ul>
+
+						<p>Se a maior parte das necessidades estiver relacionada a navegação, organização e descoberta em um catálogo grande, o Warehouse se torna uma alternativa bastante coerente.</p>
+
+						<h2>Perguntas frequentes</h2>
+
+						<h3>O Warehouse é bom para lojas com muitos produtos?</h3>
+
+						<p>Sim. Essa é uma das principais propostas do tema. Sua estrutura é especialmente adequada para operações que precisam organizar grandes quantidades de produtos e coleções.</p>
+
+						<h3>O Warehouse possui mega menu?</h3>
+
+						<p>Sim. O mega menu está entre seus recursos de navegação e pode ser útil para organizar lojas com muitas categorias e subcategorias.</p>
+
+						<h3>O tema possui filtros?</h3>
+
+						<p>Sim. O Warehouse oferece filtragem e ordenação de produtos e também pode trabalhar com filtros utilizando amostras visuais.</p>
+
+						<h3>Existe compra rápida?</h3>
+
+						<p>Sim. O recurso permite reduzir as etapas necessárias para adicionar determinados produtos ao carrinho.</p>
+
+						<h3>Existe visualização rápida?</h3>
+
+						<p>Sim. O visitante pode consultar produtos com mais agilidade enquanto permanece no contexto da coleção que estava navegando.</p>
+
+						<h3>O Warehouse possui produtos vistos recentemente?</h3>
+
+						<p>Sim. O recurso facilita o retorno a itens visualizados anteriormente pelo consumidor.</p>
+
+						<h3>É possível exibir produtos recomendados?</h3>
+
+						<p>Sim. O Warehouse possui recursos de recomendação e cross-selling para facilitar a descoberta de itens relacionados.</p>
+
+						<h3>O tema possui amostras de cores?</h3>
+
+						<p>Sim. Existem recursos de amostras para variantes e também para determinados filtros.</p>
+
+						<h3>O Warehouse funciona no celular?</h3>
+
+						<p>Sim. O tema possui estrutura responsiva. Mesmo assim, a versão final da loja deve ser testada em smartphones depois da instalação de aplicativos e personalizações.</p>
+
+						<h3>Preciso saber programar?</h3>
+
+						<p>Não para a configuração convencional. Muitas alterações podem ser realizadas pelo editor da Shopify. Projetos muito específicos podem exigir desenvolvimento.</p>
+
+						<h3>O Warehouse serve para dropshipping?</h3>
+
+						<p>Sim. Pode ser particularmente útil para operações de dropshipping com grandes catálogos. A logística e o fulfillment, entretanto, dependem das ferramentas utilizadas pela loja e não do tema.</p>
+
+						<h3>O Warehouse pode ser usado em B2B?</h3>
+
+						<p>Sim. Pesquisa, filtros e compra rápida podem ser úteis em catálogos B2B. Recursos específicos de comércio entre empresas dependem também da infraestrutura da Shopify.</p>
+
+						<h3>Quais são os presets atuais?</h3>
+
+						<p>Warehouse, Wood e Mesh.</p>
+
+						<h3>Quanto custa?</h3>
+
+						<p>O valor informado em agosto de 2026 é de US$ 320 em pagamento único para a licença do tema na loja.</p>
+
+						<h3>Qual é a versão atual?</h3>
+
+						<p>Segundo os dados de agosto de 2026 utilizados nesta análise, a versão mais recente é a 7.0.1, lançada em 13 de março de 2026.</p>
+
+						<h2>Conclusão: o Warehouse é uma boa escolha?</h2>
+
+						<p>O Warehouse é um tema que se destaca menos por efeitos visuais extravagantes e mais pela capacidade de estruturar operações de e-commerce complexas.</p>
+
+						<p>Seu principal valor aparece quando o consumidor precisa navegar por um catálogo grande, utilizar filtros, pesquisar produtos, comparar alternativas e descobrir itens relacionados.</p>
+
+						<p>Para lojas de médio e grande porte, negócios com muitas variantes, operações B2B ou e-commerces que pretendem expandir significativamente o catálogo, essa combinação pode justificar o investimento.</p>
+
+						<p>Para pequenas lojas, entretanto, a análise deve ser mais criteriosa. Se poucos dos recursos avançados forem utilizados, um tema mais simples pode entregar uma experiência igualmente eficiente por um custo menor.</p>
+
+						<p>Antes de comprar, o melhor caminho é testar o Warehouse com produtos, coleções, aplicativos e imagens semelhantes aos utilizados na operação real.</p>
+
+						<p>Se o grande desafio da sua loja é organizar muitos produtos e oferecer caminhos eficientes para que o consumidor encontre aquilo que procura, o Warehouse continua sendo uma opção relevante entre os temas premium da Shopify.</p>
+						
+					</div>
+                  
+
+                 
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="container pt-3">
+            <div class="pt-4 pb-4 pt-md-5">
+
+
+                <div class="row">
+                    <div class="col-12 col-md-4 summary">
+                        <div class="pr-0 pr-md-4">
+                            <p class="h6">PowerTemplates</p>
+                            <div class="text-left mt-0 mb-3">
+                                <p class="small d-block">
+
+
+
+
+                                    <br>Todos os direitos reservados
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-4 institutional">
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-3 information">
+                        <p class="h6">Informações</p>
+                        <ul class="list-unstyled">
+                            <li><a href="https://powertemplates.github.io/temas-para-loja-integrada">Temas Loja Integrada</a></li>
+                            <li><a href="https://powertemplates.github.io/temas-para-nuvemshop">Temas Nuvemshop</a></li>
+                            <li><a href="https://powertemplates.github.io/temas-para-shopify">Temas Shopify</a></li>
+			                <li><a href="https://powertemplates.github.io/tema-impact-shopify">Tema Impact Shopify</a></li>
+                            <li><a href="https://powertemplates.github.io/tema-betheme">Tema BeTheme</a></li>
+						    <li><a href="https://powertemplates.github.io/templates-para-woocommerce">Templates para WooCommerce</a></li>
+                            <li><a href="https://powertemplates.github.io/melhores-temas-para-wordpress">Temas para WordPress</a></li>
+                            <li><a href="https://powertemplates.github.io/melhores-templates-sites-de-venda">Templates para Sites de Venda</a></li>
+							<li><a href="https://powertemplates.github.io/tema-warehouse-shopify">Tema Warehouse Shopify</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-md-2 ml-auto mb-3 social-media">
+                        <p class="h6 mb-3">Redes sociais</p>
+                        <ul class="social-media-list list-inline mb-0">
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        footer a {
+            color: #666;
+        }
+    </style>
+
+    <div class="direitos">
+        <div class="text-center fonte-padrao">
+            
+        </div>
+    </div>
+
+    <style>
+        .direitos,
+        .direitos *,
+        .direitos::before,
+        .direitos::after,
+        .direitos>div,
+        .direitos div,
+        .direitos div a,
+        .direitos strong {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 98 !important;
+            pointer-events: auto !important;
+            height: auto !important;
+            width: auto !important;
+            max-height: none !important;
+            max-width: none !important;
+        }
+    </style>
+
+</body>
+
+</html>
+
